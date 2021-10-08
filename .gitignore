@@ -3,3 +3,5 @@ DB/data/mysql.pid
 DB/data/mysql/proxies_priv.MAI
 DB/data/mysql_error.log
 DB/data/phpmyadmin/pma__userconfig.ibd
+DB/data/mysql.pid
+DB/data/mysql_error.log
