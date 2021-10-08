@@ -1,2 +1,7 @@
-Github
-https://tqsproyect.invisionapp.com/freehand/web-recordatorio-calendario-WiKeMjREw
+
+
+<?php
+
+require __DIR__ . '/recurs_pagina_inicio.php';
+
+?>
