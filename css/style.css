@@ -1,0 +1,29 @@
+
+
+
+.icons_header{
+    display: grid;
+    height: 40px;
+}
+
+.icon_inicio{
+grid-column: 1/8;
+grid-row: 1;
+height: 40px;
+}
+
+.icon_calendario{
+    grid-column: 2/8;
+    grid-row: 1;
+    height: 40px;
+}
+.icon_recordatorio{
+    grid-column: 3/8;
+    grid-row: 1;
+    height: 40px;
+}
+.icon_login{
+    grid-column: 4/8;
+    grid-row: 1;
+    height: 40px;
+}
