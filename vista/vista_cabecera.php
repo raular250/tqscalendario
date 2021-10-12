@@ -15,9 +15,10 @@
     -->
 
     <div class="icons_header">
-        <a class="icon_inicio" href="/index.php?accio=paginaPrincipal"><img src="/assets/img/icons/portada.png">                       <div> Inicio </div></a>
-        <a class="icon_calendario" href="/index.php?accio=paginaCalendario"><img  src="/assets/img/icons/calendario.png">               <div> Calendario </div></a>
-        <a class="icon_recordatorio" href="/index.php?accio=paginaRecordatorio"><img src="/assets/img/icons/recordatorio.png">           <div> Recordatorio </div></a>
-        <a class="icon_login" href="/index.php?accio=paginaLogin"><img src="/assets/img/icons/login.png">                         <div> Login </div></a>
+        <a class="icon_inicio" href="/tqscalendario/index.php?accio=paginaPrincipal"><img src="/assets/img/icons/portada.png">                       <div> Inicio </div></a>
+        <a class="icon_calendario" href="/tqscalendario/index.php?accio=paginaCalendario"><img  src="/assets/img/icons/calendario.png">               <div> Calendario </div></a>
+        <a class="icon_recordatorio" href="/tqscalendario/index.php?accio=paginaRecordatorio"><img src="/assets/img/icons/recordatorio.png">           <div> Recordatorio </div></a>
+        <a class="icon_login" href="/tqscalendario/index.php?accio=paginaLogin"><img src="/assets/img/icons/login.png">                         <div> Login </div></a>
     </div>
+</br>
 </header>
