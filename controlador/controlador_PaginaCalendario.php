@@ -8,6 +8,6 @@ require_once __DIR__.'/../vista/vista_cabecera.php';
 
 
 
-require_once __DIR__.'/../vista/vista_pagina_inicio.php';
+require_once __DIR__.'/../vista/vista_PaginaCalendario.php';
 
 ?>

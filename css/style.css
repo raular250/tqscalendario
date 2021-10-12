@@ -1,29 +1,40 @@
 
+/*
+header {
+    position: relative;
+    padding: 10px 15px;
+    background-color: #222729;
+    margin: -8px -10px;
+}*/
 
 
 .icons_header{
     display: grid;
     height: 40px;
+    position:static;
 }
 
+.icons_header img{
+    height: 50px;
+    background-color: aqua;    
+}
+
+
 .icon_inicio{
-grid-column: 1/8;
+grid-column: 1/7;
 grid-row: 1;
-height: 40px;
 }
 
 .icon_calendario{
-    grid-column: 2/8;
+    grid-column: 2/7;
     grid-row: 1;
-    height: 40px;
 }
 .icon_recordatorio{
-    grid-column: 3/8;
+    grid-column: 3/7;
     grid-row: 1;
-    height: 40px;
 }
 .icon_login{
-    grid-column: 4/8;
+    grid-column: 4/7;
     grid-row: 1;
-    height: 40px;
 }
+
