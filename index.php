@@ -38,14 +38,4 @@ switch($accio) {
 }
 
 
-//href de cada icono del header HECHO
-//MVC de cada componente HECHO
-//mirar que funcione phpUnit
-//1. hacer test de login TDD[Test Driven Development] Backend (UnitTest)
-//2. hacer backend del login
-
-
-//hacer pagina principal html estática()
-
-
 ?>
