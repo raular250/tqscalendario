@@ -144,3 +144,4 @@ DB/data/test/db.opt
 DB/data/mysql/db.MAI
 .phpunit.result.cache
 .phpunit.result.cache
+.phpunit.result.cache
