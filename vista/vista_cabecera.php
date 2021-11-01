@@ -15,11 +15,20 @@
     -->
 
     <div class="icons_header">
-        <a class="icon_inicio" href="/tqscalendario/index.php?accio=paginaPrincipal"><img src="./assets/img/icons/portada.png">                       <div> Inicio </div></a>
-        <a class="icon_calendario" href="/tqscalendario/index.php?accio=paginaCalendario"><img  src="./assets/img/icons/calendario.png">               <div> Calendario </div></a>
-        <a class="icon_recordatorio" href="/tqscalendario/index.php?accio=paginaRecordatorio"><img src="./assets/img/icons/recordatorio.png">           <div> Recordatorio </div></a>
-        <a class="icon_login" href="/tqscalendario/index.php?accio=paginaLogin"><img src="./assets/img/icons/login.png">                         <div> Login </div></a>
+    <ul class="nav">
+        <li class="icon_inicio"><img src="./assets/img/icons/portada.png"> <a href="/tqscalendario/index.php?accio=paginaPrincipal"> Inicio </a></li>
+        <li class="icon_calendario"><img src="./assets/img/icons/calendario.png"> <a href="/tqscalendario/index.php?accio=paginaCalendario"> Calendario </a></li>
+        <li class="icon_recordatorio"><img src="./assets/img/icons/recordatorio.png"> 
+            <a href="/tqscalendario/index.php?accio=paginaRecordatorio">Recordatorios</a>
+            <ul>
+                <li><a href="/tqscalendario/index.php?accio=paginaCrearRecordatorio">Crear recordatorio</a></li>
+                <li><a href="/tqscalendario/index.php?accio=paginaVerRecordatorios">Mis recordatorios</a></li>
+            </ul>
+        </li>
+        <li class="icon_login"><img src="./assets/img/icons/login.png"><a  href="/tqscalendario/index.php?accio=paginaLogin"> Login </a></li>
+    </ul>
     </div>
+</br>
 </br>
 </br>
 </header>

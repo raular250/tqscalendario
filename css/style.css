@@ -39,3 +39,58 @@ grid-row: 1;
     grid-row: 1;
 }
 
+* {
+    margin:0px;
+    padding:0px;
+}
+
+.icons_header {
+    margin:auto;
+    width:600px;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+ul, ol {
+    list-style:none;
+}
+
+.nav > li {
+    float:left;
+    text-align:center;
+    list-style-type: none;
+}
+.nav > li>img {
+    padding:10px 40px;
+}
+
+.nav li a {
+    background-color:lightseagreen;
+    color:#fff;
+    text-shadow: 1px 1px 0 #000;
+    text-decoration:none;
+    padding:10px 12px;
+    display:block;
+}
+
+.nav li a:hover {
+    background-color:aquamarine;
+}
+
+.nav li ul {
+    display:none;
+    position:absolute;
+    min-width:140px;
+}
+
+.nav li:hover > ul {
+    display:block;
+}
+
+.nav li ul li {
+    position:relative;
+}
+
+.nav li ul li ul {
+    right:-140px;
+    top:0px;
+}
