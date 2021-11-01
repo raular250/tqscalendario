@@ -38,4 +38,10 @@ if(isset($usuario)){
 
 }
 
+function checkUser($username,$password){
+
+    
+}
+
+
 ?>
