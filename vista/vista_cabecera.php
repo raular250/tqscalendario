@@ -1,19 +1,8 @@
-<h1> CABECERA WEB</h1>
+<h1 class="center"> WEB RECORDATORIOS TQS</h1>
 
 
 
 <header id="cabecera">
-    <!--
-    <table>
-        <tr>
-        <td><strong><img class="tam_icon" onclick="iconChange(this)" src="/assets/img/icons/portada.png"><div> Inicio </div></strong></td>
-        <td><strong><img class="tam_icon" onclick="iconChange(this)" src="/assets/img/icons/calendario.png"><div> Calendario </div></strong></td>
-        <td><strong><img class="tam_icon" onclick="iconChange(this)" src="/assets/img/icons/recordatorio.png"><div> Recordatorio </div></strong></td>
-        <td><strong><img class="tam_icon" onclick="iconChange(this)" src="/assets/img/icons/login.png"><div> Login </div></strong></td>  
-        </tr>
-    </table>
-    -->
-
     <div class="icons_header">
     <ul class="nav">
         <li class="icon_inicio"><img src="./assets/img/icons/portada.png"> <a href="/tqscalendario/index.php?accio=paginaPrincipal"> Inicio </a></li>
@@ -28,6 +17,9 @@
         <li class="icon_login"><img src="./assets/img/icons/login.png"><a  href="/tqscalendario/index.php?accio=paginaLogin"> Login </a></li>
     </ul>
     </div>
+</br>
+</br>
+</br>
 </br>
 </br>
 </br>
