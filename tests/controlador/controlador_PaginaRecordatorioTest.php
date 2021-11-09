@@ -8,35 +8,74 @@ foreach(array_slice($folders, 0, -2) as $folder){
 require_once $directorio.'/controlador/controlador_PaginaRecordatorio.php';      //deberiamos usar __DIR__.'../\controlador\controlador_PaginaInicio.php'; pero no me funciona lo de subir 2 directorios con ..
 
 class RecordatorioTest extends PHPUnit\Framework\TestCase{
-    //funcion setUp para recordatorio
-    //titulo=ghj
-    //inicio=2020-01-01T00%3A00
-    //fin=2020-01-01T00%3A05
-    //freq=other            //Personalizada
-    //ant=5+minutos+antes
-    //rep=
-    //freqRep=D%C3%ADas
-    //descripcion=fghfdhdfgh
-    //rep=&freqRep=D%C3%ADas&descripcion=++++++++
-    //freq=other&ant=5+minutos+antes&rep=11&freqRep=D%C3%ADas&descripcion=++++++++
-    //freq=1+sola+vez&ant=5+minutos+antes&rep=&freqRep=D%C3%ADas&descripcion=++++++++
-    public function testRecordatorio1(){
-        $rec=new Recordatorio("titulo","2020-01-01T00%3A00","2020-01-01T00%3A05",5,"dia");
+
+    public function testCreaRecordatorioFreq1(){
+        $titulo="titulo";
+        $inicio="2020-01-01T00%3A00";
+        $fin="2020-01-01T00%3A05";
+        $freq="once";
+        $anterioridad="5m";
+        $rep="";
+        $freqRep="D";
+        $descripcion="++++++++";
+        $rec=creaRecordatorio($titulo,$inicio,$fin,$freq,$anterioridad,$rep,$freqRep,$descripcion);
         $this->assertEquals('titulo',$rec->titulo);
-        $this->assertEquals("10-10-2010-00:00",$rec->inicio);
-        $this->assertEquals("10-10-2010-00:00",$rec->fin);
-        $this->assertEquals(5,$rec->repetiticion);
-        $this->assertEquals('dia',$rec->anterioridad);
-        $this->assertEquals(null,$rec->descripcion);
+        $this->assertEquals("2020-01-01 00:00",$rec->inicio);
+        $this->assertEquals("2020-01-01 00:05",$rec->fin);
+        $this->assertEquals("once",$rec->repetiticion);
+        $this->assertEquals('5m',$rec->anterioridad);
+        $this->assertEquals("",$rec->descripcion);
     }
-    public function testRecordatorio2(){
-        $rec=new Recordatorio("titulo","10-10-2010-00:00","10-10-2010-00:00",5,"dia","desc");
+    public function testCreaRecordatorioFreq2(){
+        $titulo="titulo";
+        $inicio="2020-01-01T00%3A00";
+        $fin="2020-01-01T00%3A05";
+        $freq="daily";
+        $anterioridad="1h";
+        $rep="";
+        $freqRep="D";
+        $descripcion="++++++++";
+        $rec=creaRecordatorio($titulo,$inicio,$fin,$freq,$anterioridad,$rep,$freqRep,$descripcion);
         $this->assertEquals('titulo',$rec->titulo);
-        $this->assertEquals("10-10-2010-00:00",$rec->inicio);
-        $this->assertEquals("10-10-2010-00:00",$rec->fin);
-        $this->assertEquals(5,$rec->repetiticion);
-        $this->assertEquals('dia',$rec->anterioridad);
-        $this->assertEquals("desc",$rec->descripcion);
+        $this->assertEquals("2020-01-01 00:00",$rec->inicio);
+        $this->assertEquals("2020-01-01 00:05",$rec->fin);
+        $this->assertEquals("daily",$rec->repetiticion);
+        $this->assertEquals('1h',$rec->anterioridad);
+        $this->assertEquals("",$rec->descripcion);
+    }
+    public function testCreaRecordatorioFreq3(){
+        $titulo="titulo";
+        $inicio="2020-01-01T00%3A00";
+        $fin="2020-01-01T00%3A05";
+        $freq="L-V";
+        $anterioridad="1d";
+        $rep="";
+        $freqRep="D";
+        $descripcion="++++++++";
+        $rec=creaRecordatorio($titulo,$inicio,$fin,$freq,$anterioridad,$rep,$freqRep,$descripcion);
+        $this->assertEquals('titulo',$rec->titulo);
+        $this->assertEquals("2020-01-01 00:00",$rec->inicio);
+        $this->assertEquals("2020-01-01 00:05",$rec->fin);
+        $this->assertEquals("1",$rec->repetiticion);
+        $this->assertEquals('1d',$rec->anterioridad);
+        $this->assertEquals("",$rec->descripcion);
+    }
+    public function testCreaRecordatorioFreq4(){
+        $titulo="titulo";
+        $inicio="2020-01-01T00%3A00";
+        $fin="2020-01-01T00%3A05";
+        $freq="annually";
+        $anterioridad="1s";
+        $rep="";
+        $freqRep="D";
+        $descripcion="++++++++";
+        $rec=creaRecordatorio($titulo,$inicio,$fin,$freq,$anterioridad,$rep,$freqRep,$descripcion);
+        $this->assertEquals('titulo',$rec->titulo);
+        $this->assertEquals("2020-01-01 00:00",$rec->inicio);
+        $this->assertEquals("2020-01-01 00:05",$rec->fin);
+        $this->assertEquals("1",$rec->repetiticion);
+        $this->assertEquals('1s',$rec->anterioridad);
+        $this->assertEquals("",$rec->descripcion);
     }
     public function TestnextRecordatorio1(){
         //$recordatorio1=("titulo","05-11-2021-15:00","10-10-2022-00:00",5,"dia")

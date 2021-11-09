@@ -16,7 +16,7 @@ class Recordatorio{
     public $anterioridad;
     public $descripcion;
 
-    function __construct($titulo,$inicio,$fin,$repetiticion,$anterioridad,$descripcion=null){
+    function __construct($titulo,$inicio,$fin,$repetiticion,$anterioridad,$descripcion){
         $this->titulo=$titulo;
         $this->inicio=$inicio;
         $this->fin=$fin;
@@ -30,8 +30,8 @@ class Recordatorio{
 }
 
 //get values and construct a Recordatorio
-function creaRecordatorio($titulo,$inicio,$fin,$repetiticion,$anterioridad,$descripcion=null){
-    
+function creaRecordatorio($titulo,$inicio,$fin,$freq,$anterioridad,$rep,$freqRep,$descripcion){
+
 }
 //show values
 ?>

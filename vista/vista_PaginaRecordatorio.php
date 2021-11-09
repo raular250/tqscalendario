@@ -10,24 +10,24 @@
     <p>De: <input  type="datetime-local" name="inicio" required value="2020-01-01T00:00" min="2020-01-01T00:00" max="2999-12-31T23:59"></p>
     <p>A: <input type="datetime-local" name="fin" required value="2020-01-01T00:05" min="2020-01-01T00:00" max="2999-12-31T23:59"></p>
     <p>Repetir: <select name="freq" onchange="repeticionPersonalizada(this);">
-            <option selected>1 sola vez </option>
-            <option>Diariamente</option>
-            <option>(Lun-Vie)</option>
-            <option>Cada año</option>
+            <option selected value="once">1 sola vez </option>
+            <option value="daily">Diariamente</option>
+            <option value="L-V">(Lun-Vie)</option>
+            <option value="annually">Cada año</option>
             <option value="other">Personalizado</option>
         </select>
         <select name="ant">
-            <option selected>5 minutos antes </option>
-            <option>1 hora antes</option>
-            <option>1 día antes</option>
-            <option>1 semana antes</option>
+            <option selected value="5m">5 minutos antes </option>
+            <option value="1h">1 hora antes</option>
+            <option value="1d">1 día antes</option>
+            <option value="1s">1 semana antes</option>
         </select>
         <div id="ifYes" style="display: none;">
             <p>Cada: <input type="number" name="rep" min="1" max="365" placeholder="1">
                 <select name="freqRep">
-                    <option>Días</option>
-                    <option>Meses</option>
-                    <option>Años</option>
+                    <option value='D'>Días</option>
+                    <option value='M'>Meses</option>
+                    <option value='A'>Años</option>
                 </select>
             </p>
         </div>
