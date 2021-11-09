@@ -13,15 +13,15 @@ class Recordatorio{
     public $inicio;
     public $fin;
     public $repeticion;
-    public $frequencia;
+    public $anterioridad;
     public $descripcion;
 
-    function __construct($titulo,$inicio,$fin,$repetiticion,$frequencia,$descripcion=null){
+    function __construct($titulo,$inicio,$fin,$repetiticion,$anterioridad,$descripcion=null){
         $this->titulo=$titulo;
         $this->inicio=$inicio;
         $this->fin=$fin;
         $this->repeticion=$repeticion;
-        $this->frequencia=$frequencia;
+        $this->anterioridad=$anterioridad;
         $this->descripcion=$descripcion;
     }
     function nextRecordatorio($dateNow){
@@ -29,4 +29,6 @@ class Recordatorio{
     }
 }
 
+//get values and construct a Recordatorio
+//show values
 ?>

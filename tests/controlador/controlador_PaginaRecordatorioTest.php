@@ -16,7 +16,7 @@ class RecordatorioTest extends PHPUnit\Framework\TestCase{
         $this->assertEquals("10-10-2010-00:00",$rec->inicio);
         $this->assertEquals("10-10-2010-00:00",$rec->fin);
         $this->assertEquals(5,$rec->repetiticion);
-        $this->assertEquals('dia',$rec->frequencia);
+        $this->assertEquals('dia',$rec->anterioridad);
         $this->assertEquals(null,$rec->descripcion);
     }
     public function testRecordatorio2(){
@@ -25,7 +25,7 @@ class RecordatorioTest extends PHPUnit\Framework\TestCase{
         $this->assertEquals("10-10-2010-00:00",$rec->inicio);
         $this->assertEquals("10-10-2010-00:00",$rec->fin);
         $this->assertEquals(5,$rec->repetiticion);
-        $this->assertEquals('dia',$rec->frequencia);
+        $this->assertEquals('dia',$rec->anterioridad);
         $this->assertEquals("desc",$rec->descripcion);
     }
     public function TestnextRecordatorio1(){
