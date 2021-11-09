@@ -24,6 +24,10 @@ switch($accio) {
         require __DIR__ . '/recurso_PaginaLogin.php';
         break;
 
+    case 'enviarLogin':
+        require __DIR__ . '/recurso_EnviarLogin.php';
+        break;
+
 
 
 

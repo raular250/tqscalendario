@@ -14,11 +14,7 @@ class UsuarioTest extends PHPUnit\Framework\TestCase{
         $this->assertEquals('raul',$usuario->user);
     }
     
-    // public function testPassword(){
-    //     $usuario=new Usuario('raul','123');
-    //     $this->assertEquals('123',$usuario->password);
-    // }
-    
+
     public function testGetUser(){
         $usuario=new Usuario('raul','123');
         $result=$usuario->getUser();
@@ -45,12 +41,40 @@ class UsuarioTest extends PHPUnit\Framework\TestCase{
 
     public function testChangeEqualPassword(){
         $usuario=new Usuario('raul','123');
-        $usuario->changePassword('123','123');
+        $usuario->getUser('123','123');
         $this->assertEquals('123',$usuario->getPassword());
     }
 
-    
+    public function testCheckUser(){
+        $result=CheckUsername('prueba11');
+        // var_dump($result);
+        $this->assertTrue($result);
+    }
 
+    public function testCheckUserPassword(){ //hacer dinámico
+        $login=CheckUsernamePassword('prueba22','PRUEBA22'); //el username debe existir
+        var_dump($login);
+        $this->assertTrue($login);
+    }
+
+    public function testCheckUserEmpty(){
+        echo("EMPTY Login");
+        $login=CheckUserEmpty('prueba2','123456');
+        var_dump($login);
+        $this->assertTrue($login);
+    }
+    
+    public function testCheckSizeUserPass(){
+        echo("SIZE Login");
+        $size=CheckSizeUserPass('prueba2','123456');        
+        var_dump($size);
+        $this->assertTrue($size);
+    }
+
+
+    //VALORES FRONTERA
 }
+
+
 
 ?>
