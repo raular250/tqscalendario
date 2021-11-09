@@ -30,5 +30,8 @@ class Recordatorio{
 }
 
 //get values and construct a Recordatorio
+function creaRecordatorio($titulo,$inicio,$fin,$repetiticion,$anterioridad,$descripcion=null){
+    
+}
 //show values
 ?>

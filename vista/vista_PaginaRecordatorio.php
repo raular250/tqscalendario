@@ -16,7 +16,7 @@
             <option>Cada año</option>
             <option value="other">Personalizado</option>
         </select>
-        <select name="cuando">
+        <select name="ant">
             <option selected>5 minutos antes </option>
             <option>1 hora antes</option>
             <option>1 día antes</option>
