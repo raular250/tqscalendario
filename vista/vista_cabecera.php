@@ -1,6 +1,10 @@
+
 <h1 class="center"> WEB RECORDATORIOS TQS</h1>
 
-
+<?php
+var_dump("ASSSSSSS");
+var_dump($_SESSION['loged']);
+?>
 
 <header id="cabecera">
     <div class="icons_header">
@@ -14,7 +18,25 @@
                 <li><a href="/tqscalendario/index.php?accio=paginaVerRecordatorios">Mis recordatorios</a></li>
             </ul>
         </li>
-        <li class="icon_login"><img src="./assets/img/icons/login.png"><a  href="/tqscalendario/index.php?accio=paginaLogin"> Login </a></li>
+
+        
+        <?php if(($_SESSION['loged']==TRUE)){ ?>
+            <li class="icon_login"><img src="./assets/img/icons/login.png">
+                <a href="/tqscalendario/index.php?accio=paginaPrincipal"> <?php echo($_POST['usernameLogin']); ?></a>
+                <ul>
+                    <li><a href="/tqscalendario/index.php?accio=paginaLogout">Logout</a></li>
+                </ul>                 
+            </li>           
+        <?php }
+        else { ?>
+            <li class="icon_login"><img src="./assets/img/icons/login.png">
+                <a  href="/tqscalendario/index.php?accio=paginaLogin"> Login </a>
+            </li>
+        <?php } 
+   
+        ?> 
+                          
+        
     </ul>
     </div>
 </br>
@@ -24,3 +46,8 @@
 </br>
 </br>
 </header>
+
+<?php
+echo("Sesión loggeada?");
+var_dump($_SESSION['loged']);
+?>

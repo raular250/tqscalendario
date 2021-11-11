@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ .'/../controlador/controlador_PaginaLogin.php';
+
 
 function getUserBD($connexio,$username){ //En la base de datos
     try{
@@ -32,11 +32,11 @@ function getUserBDMock(){
         'prueba33'  => 'PRUEBA33',
     ];
 
-    var_dump("USUARIOS", $users);
+    // var_dump("USUARIOS", $users); //ver array de usuarios
     return $users;
 }
 
-function getPasswordUserBDMock(){ //le pasamos le usuario para ver su contraseña, hay que hacerlo dinámico con un diccionario
+function getPasswordALFABDMock(){ //le pasamos le usuario para ver su contraseña, hay que hacerlo dinámico con un diccionario
     //devuelve la contraseña del usuario
     $password='llaveMaestra';
     return $password;

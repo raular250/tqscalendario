@@ -1,4 +1,7 @@
 <?php
+
+/*
+
 $folders=explode("\\", __DIR__);
 $directorio="";
 foreach(array_slice($folders, 0, -2) as $folder){
@@ -88,4 +91,6 @@ class RecordatorioTest extends PHPUnit\Framework\TestCase{
         $this->assertEquals("05-11-2021 14:55",$next_rec);
     }
 }
+
+*/
 ?>

@@ -1,10 +1,13 @@
-
+<?php session_start(); ?>
 <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="css/style.css">
 
 <?php
 
-$accio = $_GET['accio'] ?? null; 
+
+// unset($_SESSION['loged']); 
+$_SESSION['loged']=FALSE;
+$accio = $_GET['accio'] ?? null;
 
 switch($accio) {
     
@@ -27,9 +30,10 @@ switch($accio) {
     case 'enviarLogin':
         require __DIR__ . '/recurso_EnviarLogin.php';
         break;
-
-
-
+        
+    case 'paginaLogout':
+        require __DIR__ . '/recurso_paginaLogout.php';
+        break;
 
 
     default:

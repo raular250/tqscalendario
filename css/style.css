@@ -15,6 +15,7 @@ header {
     position:static;
 } */
 
+
 .icons_header img{
     height: 50px;
     background-color: aqua;    
@@ -99,14 +100,31 @@ ul, ol {
 }
 
 
+
+
 /* BODY */
 .center {
-    
-    margin: auto;
-    width: 50%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 100px;
+
     /* border: 3px solid green; */
     padding: 10px;
+    background-color: aquamarine;
 }
 h1{
     text-align:center;
+}
+
+.mensajesCorrectosLogin{
+    background-color: greenyellow;
+    
+}
+.mensajesIncorrectosLogin{
+    background-color: red;
+    
+}
+.mensajeInfoLogin{
+    background-color: peru;
 }
