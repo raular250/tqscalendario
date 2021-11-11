@@ -41,8 +41,3 @@
 </br>
 </br>
 </header>
-
-<?php
-echo("Sesión loggeada?");
-var_dump($_SESSION['loged']);
-?>
