@@ -1,7 +1,7 @@
 <body class="center">
 
 
-<div >
+<div>
 
     <h2 >Creación de un recordatorio:</h2>
     
