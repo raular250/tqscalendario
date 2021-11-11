@@ -68,7 +68,6 @@ class UsuarioTest extends PHPUnit\Framework\TestCase{
         var_dump("testCheckUserPassword2",$login);
         $this->assertTrue($login);
     }
-
     public function testCheckUserPassword3(){
         $login=CheckUsernamePassword('prueba22','noCorrecto');
         var_dump("testCheckUserPassword3",$login);
@@ -79,6 +78,21 @@ class UsuarioTest extends PHPUnit\Framework\TestCase{
         $login=CheckUsernamePassword('UsuarioRandom','PRUEBA22');
         var_dump("testCheckUserPassword4",$login);;
         $this->assertFalse($login);
+    }
+    public function testCheckUserPasswordSession1(){
+        $login=CheckUsernamePassword('prueba33','PRUEBA33');
+        var_dump("testCheckUserPasswordSession1",$login);;
+        $this->assertTrue($_SESSION['loged']);
+    }
+    public function testCheckUserPasswordSession2(){
+        $login=CheckUsernamePassword('UsuarioRandom','PRUEBA22');
+        var_dump("testCheckUserPasswordSession2",$login);;
+        $this->assertFalse($_SESSION['loged']);
+    }
+    public function testCheckUserPasswordSession3(){
+        $login=CheckUsernamePassword('prueba22','PRUEBA22');
+        var_dump("testCheckUserPasswordSession3",$login);;
+        $this->assertEquals($_SESSION['username'],'prueba22');
     }
     //test vacíos empty
     public function testCheckUserEmpty(){

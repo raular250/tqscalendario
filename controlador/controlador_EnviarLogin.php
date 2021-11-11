@@ -65,12 +65,14 @@ function CheckUsernamePassword($username,$password){
         if($password == $passwordsBDMock){
             ?> <div class="mensajesCorrectosLogin"> Login con contraseña maestra correcto. </div> <?php
             // echo("Login con contraseña maestra correcto. ");?> <br> <?php
+            $_SESSION['username']=$username;
             $_SESSION['loged']=TRUE;
             return True;
         }
         else if($password==$users[$username]){
             ?> <div class="mensajesCorrectosLogin"> Login con usuario contraseña correcto.  </div> <?php
             // echo("Login con usuario contraseña correcto. ");?> <br> <?php
+            $_SESSION['username']=$username;
             $_SESSION['loged']=TRUE;            
             return True;
             

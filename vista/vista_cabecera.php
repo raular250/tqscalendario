@@ -1,11 +1,6 @@
 
 <h1 class="center"> WEB RECORDATORIOS TQS</h1>
 
-<?php
-var_dump("ASSSSSSS");
-var_dump($_SESSION['loged']);
-?>
-
 <header id="cabecera">
     <div class="icons_header">
     <ul class="nav">
@@ -22,7 +17,7 @@ var_dump($_SESSION['loged']);
         
         <?php if(($_SESSION['loged']==TRUE)){ ?>
             <li class="icon_login"><img src="./assets/img/icons/login.png">
-                <a href="/tqscalendario/index.php?accio=paginaPrincipal"> <?php echo($_POST['usernameLogin']); ?></a>
+                <a href="/tqscalendario/index.php?accio=paginaPrincipal"> <?php echo($_SESSION['username']); ?></a>
                 <ul>
                     <li><a href="/tqscalendario/index.php?accio=paginaLogout">Logout</a></li>
                 </ul>                 

@@ -6,7 +6,6 @@
 
 
 // unset($_SESSION['loged']); 
-$_SESSION['loged']=FALSE;
 $accio = $_GET['accio'] ?? null;
 
 switch($accio) {

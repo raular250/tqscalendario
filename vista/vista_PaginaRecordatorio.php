@@ -42,7 +42,7 @@
         </script>
 
     </p>
-    <p>Descripción:
+    <p>Descripción:</p><p>
         <textarea name="descripcion" rows="4" cols="50">
         </textarea>
     </p>
