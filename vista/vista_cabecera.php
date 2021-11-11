@@ -15,7 +15,7 @@
         </li>
 
         
-        <?php if(($_SESSION['loged']==TRUE)){ ?>
+        <?php if((isset($_SESSION['loged']) && $_SESSION['loged']==TRUE)){ ?>
             <li class="icon_login"><img src="./assets/img/icons/login.png">
                 <a href="/tqscalendario/index.php?accio=paginaPrincipal"> <?php echo($_SESSION['username']); ?></a>
                 <ul>
