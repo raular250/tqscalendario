@@ -33,19 +33,39 @@ switch($accio) {
         break;
 
     case 'paginaLogin':
-        require __DIR__ . '/recurso_PaginaLogin.php';
+        if((isset($_SESSION['loged']) && $_SESSION['loged']==FALSE)){
+            require __DIR__ . '/recurso_PaginaLogin.php';
+        }
+        else {
+            require __DIR__ . '/recurso_errorNoLoged.php';
+        }
         break;
 
     case 'enviarLogin':
-        require __DIR__ . '/recurso_EnviarLogin.php';
+        if((isset($_SESSION['loged']) && $_SESSION['loged']==FALSE)){
+            require __DIR__ . '/recurso_EnviarLogin.php';
+        }
+        else {
+            require __DIR__ . '/recurso_errorNoLoged.php';
+        }
         break;
         
     case 'paginaLogout':
-        require __DIR__ . '/recurso_paginaLogout.php';
+        if((isset($_SESSION['loged']) && $_SESSION['loged']==TRUE)){
+            require __DIR__ . '/recurso_paginaLogout.php';
+        }
+        else {
+            require __DIR__ . '/recurso_errorNoLoged.php';
+        }
         break;
 
     case 'crearRecordatorio':
-        require __DIR__ . '/recurso_PaginaRecordatorio.php';
+        if((isset($_SESSION['loged']) && $_SESSION['loged']==TRUE)){
+            require __DIR__ . '/recurso_PaginaRecordatorio.php';
+        }
+        else {
+            require __DIR__ . '/recurso_errorNoLoged.php';
+        }
         break;
 
 
