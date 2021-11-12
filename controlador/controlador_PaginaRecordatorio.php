@@ -23,9 +23,6 @@ class Recordatorio{
         $this->anterioridad=$anterioridad;
         $this->descripcion=$descripcion;
     }
-    function nextRecordatorio($dateNow){
-        //Devuelve la fecha del siguiente recordatorio
-    }
 }
 
 //get values and construct a Recordatorio

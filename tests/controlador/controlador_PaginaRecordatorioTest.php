@@ -259,15 +259,6 @@ class RecordatorioTest extends PHPUnit\Framework\TestCase{
         $connexio=connectDB();
         $this->assertFalse(insertRecordatorioBD($rec,'a',$connexio));
     }
-    
-    // public function TestnextRecordatorio1(){
-    //     $next_rec=$recordatorio1->nextRecordatorio("02-11-2021 11:11");
-    //     $this->assertEquals("05-11-2021 14:55",$next_rec);
-    // }
-    // public function TestnextRecordatorio2(){
-    //     $next_rec=$recordatorio1->nextRecordatorio("02-11-2021 11:11");
-    //     $this->assertEquals("05-11-2021 14:55",$next_rec);
-    // }
 }
 
 

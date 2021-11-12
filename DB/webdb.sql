@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 12, 2021 at 08:41 PM
+-- Generation Time: Nov 12, 2021 at 09:37 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.11
 
@@ -34,8 +34,24 @@ CREATE TABLE `recordatorios` (
   `fin` datetime NOT NULL,
   `frequencia` varchar(20) NOT NULL,
   `anterioridad` varchar(2) NOT NULL,
-  `descripcion` varchar(200) DEFAULT NULL
+  `descripcion` varchar(200) DEFAULT NULL,
+  `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `recordatorios`
+--
+
+INSERT INTO `recordatorios` (`id`, `titulo`, `inicio`, `fin`, `frequencia`, `anterioridad`, `descripcion`, `user_id`) VALUES
+(1, 'fghjfg', '2020-01-01 00:00:00', '2020-01-01 00:05:00', 'once', '5m', 'fghj', 3),
+(2, 'fhj', '2020-01-01 00:00:00', '2020-01-01 00:05:00', 'once', '5m', '', 3),
+(3, 'Prueba1', '2021-01-01 09:45:00', '2022-01-01 11:55:00', 'D', '5m', 'No se', 3),
+(4, 'Yo k se pavo', '2023-09-22 02:00:00', '2025-06-01 21:11:00', '1D', '1s', 'Pues algo', 3),
+(8, 'titulo', '2020-01-01 00:00:00', '2020-01-01 00:05:00', '2A', '1s', 'Hola esto es una descripcion', 1),
+(9, 'titulo', '2020-01-01 00:00:00', '2020-01-01 00:05:00', '2A', '1s', 'Hola esto es una descripcion', 1),
+(11, 'titulo', '2020-01-01 00:00:00', '2020-01-01 00:05:00', '2A', '1s', 'Hola esto es una descripcion', 1),
+(13, 'titulo', '2020-01-01 00:00:00', '2020-01-01 00:05:00', '2A', '1s', 'Hola esto es una descripcion', 1),
+(15, 'titulo', '2020-01-01 00:00:00', '2020-01-01 00:05:00', '2A', '1s', 'Hola esto es una descripcion', 1);
 
 -- --------------------------------------------------------
 
@@ -69,7 +85,8 @@ INSERT INTO `usuarios` (`id`, `user`, `password`) VALUES
 -- Indexes for table `recordatorios`
 --
 ALTER TABLE `recordatorios`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`);
 
 --
 -- Indexes for table `usuarios`
@@ -85,13 +102,23 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT for table `recordatorios`
 --
 ALTER TABLE `recordatorios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `usuarios`
 --
 ALTER TABLE `usuarios`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `recordatorios`
+--
+ALTER TABLE `recordatorios`
+  ADD CONSTRAINT `user_id` FOREIGN KEY (`user_id`) REFERENCES `usuarios` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
