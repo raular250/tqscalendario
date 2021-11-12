@@ -16,7 +16,7 @@ class Recordatorio{
     public $anterioridad;
     public $descripcion;
 
-    function __construct($titulo,$inicio,$fin,$repetiticion,$anterioridad,$descripcion){
+    function __construct($titulo,$inicio,$fin,$repeticion,$anterioridad,$descripcion){
         $this->titulo=$titulo;
         $this->inicio=$inicio;
         $this->fin=$fin;

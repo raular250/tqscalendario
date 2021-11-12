@@ -9,7 +9,7 @@
         <li class="icon_recordatorio"><img src="./assets/img/icons/recordatorio.png"> 
             <a href="/tqscalendario/index.php?accio=paginaRecordatorio">Recordatorios</a>
             <ul>
-                <li><a href="/tqscalendario/index.php?accio=paginaCrearRecordatorio">Crear recordatorio</a></li>
+                <li><a href="/tqscalendario/index.php?accio=paginaRecordatorio">Crear recordatorio</a></li>
                 <li><a href="/tqscalendario/index.php?accio=paginaVerRecordatorios">Mis recordatorios</a></li>
             </ul>
         </li>

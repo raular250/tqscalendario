@@ -43,8 +43,7 @@
 
     </p>
     <p>Descripción:</p><p>
-        <textarea name="descripcion" rows="4" cols="50">
-        </textarea>
+        <textarea name="descripcion" rows="4" cols="50"></textarea>
     </p>
     <p>
         <input type="submit" value="Crear recordatorio">
