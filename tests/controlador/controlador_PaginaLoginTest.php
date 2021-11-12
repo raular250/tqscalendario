@@ -6,7 +6,7 @@ foreach(array_slice($folders, 0, -2) as $folder){
 }
 
 // require_once $directorio.'/controlador/controlador_PaginaLogin.php';      //deberiamos usar __DIR__.'../\controlador\controlador_PaginaInicio.php'; pero no me funciona lo de subir 2 directorios con ..
-require_once $directorio.'/controlador/controlador_EnviarLogin.php'; 
+require_once $directorio.'/controlador/controlador_EnviarLogin.php';
 
 class UsuarioTest extends PHPUnit\Framework\TestCase{
 
@@ -47,7 +47,7 @@ class UsuarioTest extends PHPUnit\Framework\TestCase{
     }
 
     public function testCheckUser(){
-        $result=CheckUsername('prueba11');
+        $result=CheckUsername('Frutesino5');
         // var_dump($result);
         $this->assertTrue($result);
     }
@@ -58,13 +58,13 @@ class UsuarioTest extends PHPUnit\Framework\TestCase{
     }
 
     public function testCheckUserPassword(){
-        $login=CheckUsernamePassword('prueba22','llaveMaestra');
+        $login=CheckUsernamePassword('alejoHugo','llaveMaestra');
         var_dump("testCheckUserPassword",$login);
         $this->assertTrue($login);
     }
 
     public function testCheckUserPassword2(){
-        $login=CheckUsernamePassword('prueba33','PRUEBA33');
+        $login=CheckUsernamePassword('legendary','tekashi');
         var_dump("testCheckUserPassword2",$login);
         $this->assertTrue($login);
     }
@@ -80,7 +80,7 @@ class UsuarioTest extends PHPUnit\Framework\TestCase{
         $this->assertFalse($login);
     }
     public function testCheckUserPasswordSession1(){
-        $login=CheckUsernamePassword('prueba33','PRUEBA33');
+        $login=CheckUsernamePassword('killshot122','scarce');
         var_dump("testCheckUserPasswordSession1",$login);;
         $this->assertTrue($_SESSION['loged']);
     }
@@ -90,9 +90,9 @@ class UsuarioTest extends PHPUnit\Framework\TestCase{
         $this->assertFalse($_SESSION['loged']);
     }
     public function testCheckUserPasswordSession3(){
-        $login=CheckUsernamePassword('prueba22','PRUEBA22');
+        $login=CheckUsernamePassword('Frutesino5','bosque');
         var_dump("testCheckUserPasswordSession3",$login);;
-        $this->assertEquals($_SESSION['username'],'prueba22');
+        $this->assertEquals($_SESSION['username'],'Frutesino5');
     }
     //test vacíos empty
     public function testCheckUserEmpty(){

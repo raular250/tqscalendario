@@ -18,9 +18,11 @@
 
 
 <body class="center">
-    <section id="regisForm" class="textoForm cursorNormal center">
 
-        <h2 class="titulo">INICIO SESIÓN</h2>
+    <h2>INICIO DE SESIÓN</h2>
+    <br>
+
+    <section id="regisForm" class="textoForm cursorNormal center">
 
         <form class="formulario" method="post" target="_self" action="index.php?accio=enviarLogin">
             <a>Username: <input type="text" name="usernameLogin" required><br /></a>

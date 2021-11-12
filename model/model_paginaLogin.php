@@ -19,17 +19,14 @@ function getUserBD($connexio,$username){ //En la base de datos
 
 function getUserBDMock(){
    //[llave,valor] de usuarios creados
-//    $users= array(
-//         'prueba1'  => 'PRUEBA1',
-//         'prueba11'  => 'PRUEBA11',
-//         'prueba22'  => 'PRUEBA22',
-//         'prueba33'  => 'PRUEBA33',
-//     ); 
+
     $users=[
-        'prueba1'  => 'PRUEBA1',
-        'prueba11'  => 'PRUEBA11',
-        'prueba22'  => 'PRUEBA22',
-        'prueba33'  => 'PRUEBA33',
+        'Macananero2'  => '442445',
+        'Frutesino5'  => 'bosque',
+        'Maria'  => '123_456',
+        'alejoHugo'  => '093284',
+        'legendary'  => 'tekashi',
+        'killshot122'  => 'scarce',
     ];
 
     // var_dump("USUARIOS", $users); //ver array de usuarios

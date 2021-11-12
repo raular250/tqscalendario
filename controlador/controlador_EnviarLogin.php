@@ -2,10 +2,12 @@
 
 //connexio a la base de dades
 require_once __DIR__.'/../model/model_connectDB.php';
+require_once __DIR__.'/../model/model_getUserID.php';
+require_once __DIR__.'/../model/model_getUsers.php';
+
+$mensaje=array();
 
 $connexio=connectDB();
-// require __DIR__.'/../controlador/controlador_PaginaLogin.php';
-
 
 $username=$_POST['usernameLogin'];
 $password=$_POST['passwordLogin'];
@@ -14,8 +16,6 @@ $password=$_POST['passwordLogin'];
 // echo("PASSWORD");
 // var_dump($password);
 require_once __DIR__.'/../model/model_paginaLogin.php';
-$connexio=connectDB();
-
 
 
 class Usuario {
@@ -42,131 +42,137 @@ class Usuario {
     }
 }
 
-function CheckUsername($username){    
+//Comprueba si un usuario existe en la base de datos
+function CheckUsername($username){   
+    $connexio=connectDB();
+    $users=getUsers($connexio);
+    $contador=0;
+    $encontrado=false;
+    global $mensaje;
+    foreach($users as $usernameBD){
+        if($usernameBD[1]==$username){
+            array_push($mensaje,"<div class='mensajesCorrectosLogin'> El username introducido SÍ existe. </div>");
+            return True;
+        }
+    }
+    array_push($mensaje,"<div class='mensajesIncorrectosLogin'> El username introducido NO existe. </div>");
+    return False;
+}
+
+
+
+function CheckUsernameMock($username){
     $users=getUserBDMock();
-    
+    global $mensaje;
     if(array_key_exists($username,($users))){
-        ?> <div class="mensajesCorrectosLogin"> El username introducido SÍ existe. </div> <?php
-        // echo("El username introducido SÍ existe. ");?> <br> <?php
+        array_push($mensaje,"<div class='mensajesCorrectosLogin'> El username introducido SÍ existe. </div>");
         return True;
     }
     else{
-        ?> <div class="mensajesIncorrectosLogin"> El username introducido NO existe. </div> <?php
-        // echo("El username introducido NO existe. ");?> <br> <?php
+        array_push($mensaje,"<div class='mensajesIncorrectosLogin'> El username introducido NO existe. </div>");
         return False; 
     }
-
 }
 
-function CheckUsernamePassword($username,$password){
+
+//Comprueba si el usuario y password introducido existe
+function CheckUsernamePassword($username,$password){ 
+    global $mensaje;
     $passwordsBDMock=getPasswordALFABDMock();
     if(CheckUsername($username)){
         $users=getUserBDMock();
-        if($password == $passwordsBDMock){
-            ?> <div class="mensajesCorrectosLogin"> Login con contraseña maestra correcto. </div> <?php
-            // echo("Login con contraseña maestra correcto. ");?> <br> <?php
+        if($password == $passwordsBDMock){ //login con contraseña maestra
+            array_push($mensaje,"<div class='mensajesCorrectosLogin'> Login con contraseña maestra correcto. </div>");
+            $connexio=connectDB();
+            $_SESSION['userId'] = getUserID($connexio,$username);
             $_SESSION['username']=$username;
             $_SESSION['loged']=TRUE;
             return True;
         }
-        else if($password==$users[$username]){
-            ?> <div class="mensajesCorrectosLogin"> Login con usuario contraseña correcto.  </div> <?php
-            // echo("Login con usuario contraseña correcto. ");?> <br> <?php
+        else if($password==$users[$username]){ //login con usuario contraseña correcto
+            array_push($mensaje,"<div class='mensajesCorrectosLogin'> Login con usuario contraseña correcto. </div>");
+            $connexio=connectDB();
+            $_SESSION['userId'] = getUserID($connexio,$username);
             $_SESSION['username']=$username;
             $_SESSION['loged']=TRUE;            
-            return True;
-            
+            return True; 
         }
-        else{
-        ?> <div class="mensajesIncorrectosLogin"> Username correcto, password incorrecto. </div> <?php
-            // echo("Username correcto, password incorrecto. ");?> <br> <?php
+        else{ //username correcto, password incorrecto
+            array_push($mensaje,"<div class='mensajesIncorrectosLogin'> Username correcto, password incorrecto. </div>");
+            unset($_SESSION['username']);
             $_SESSION['loged']=FALSE;
-            return False; //username correcto, password incorrecto
+            return False; 
         }
     }
-    else{
-        ?> <div class="mensajesIncorrectosLogin"> Username incorrecto. </div> <?php
-        // echo("Username incorrecto.");?> <br> <?php
+    else{ //username incorrecto
+        array_push($mensaje,"<div class='mensajesIncorrectosLogin'> Username incorrecto. </div>");
+        unset($_SESSION['username']);
         $_SESSION['loged']=FALSE;
-        return False; //username incorrecto
+        return False; 
         }
 }   
-    
-function CheckUserEmpty($username,$password){
 
+//Comprueba que los campos del login no estén vacíos
+function CheckUserEmpty($username,$password){ 
+    global $mensaje;
     if($username=='' || $password ==''){
         if($username=='' && $password ==''){
-        ?> <div class="mensajesIncorrectosLogin"> Los 2 campos están vacíos. </div> <?php
-            // echo("Los 2 campos están vacíos. ");?> <br> <?php
+            (isset($mensaje)?:$mensaje=array());
+            array_push($mensaje,"<div class='mensajesIncorrectosLogin'> Los 2 campos están vacíos. </div>");
             return False; //los 2 campos vacíos
         }
         else if($username==''){
-        ?> <div class="mensajesIncorrectosLogin"> El campo username está vacío. </div> <?php
-            // echo("El campo username está vacío. ");?> <br> <?php
+            array_push($mensaje,"<div class='mensajesIncorrectosLogin'> El campo username está vacío. </div>");
             return False; //username vacío
         }
         else if($password==''){
-        ?> <div class="mensajesIncorrectosLogin"> El campo password está vacío. </div> <?php
-            // echo("El campo password está vacío. ");?> <br> <?php
+            array_push($mensaje,"<div class='mensajesIncorrectosLogin'> El campo password está vacío. </div>");
             return False; //password vacío
         }
     }
     else{
-        ?> <div class="mensajesCorrectosLogin"> Los campos no están vacíos. </div> <?php
-        // echo("Los campos no están vacíos. ");?> <br> <?php
+        array_push($mensaje,"<div class='mensajesCorrectosLogin'> Los campos no están vacíos. </div>");
         return True; //campos llenos
     }
 }
 
+//Comprueba la longitud de los valores introducidos en los campos username y password
 function CheckSizeUserPass($username,$password){
-
-    if(strlen($username)>=4 && strlen($username)<=20){
-        if(strlen($password)>=6 && strlen($password)<=20){
-        ?> <div class="mensajesCorrectosLogin"> Tamaños de Login correctos. </div> <?php
-            // echo("Tamaños de Login correctos. ");?> <br> <?php
-            return True; //login con tamaños correctos
+    global $mensaje;
+    if(strlen($username)>=4 && strlen($username)<=20){ //username con tamaño correcto? si/no
+        if(strlen($password)>=6 && strlen($password)<=20){ //si, comprobamos tamaño de la contraseña
+            array_push($mensaje,"<div class='mensajesCorrectosLogin'> Tamaños de Login correctos. </div>");
+            return True; //correcto, campos username y password con tamaños correctos
         }
         else{
-            if(strlen($password)<6){
-            ?>  <div class="mensajesIncorrectosLogin"> Password introducido con pocos carácteres </div> <?php
-                // echo("Password introducido con pocos carácteres");
-                // echo("<--PASSWORD--> Tamaño mínimo 6. Tamaño máximo 20. ");?> <br> <?php
+            if(strlen($password)<6){ //incorrecto, password tiene menos de 4 carácteres
+            array_push($mensaje,"<div class='mensajesIncorrectosLogin'> Password introducido con menos de 6 carácteres. </div>");
             }
-            else{
-            ?>  <div class="mensajesIncorrectosLogin"> Password introducido con demasiados carácteres </div> <?php
-                // echo("Password introducido con demasiados carácteres");
-                // echo("<--PASSWORD--> Tamaño mínimo 6. Tamaño máximo 20. ");?> <br> <?php
+            else{ //incorrecto, password tiene más de 20 carácteres
+            array_push($mensaje,"<div class='mensajesIncorrectosLogin'> Password introducido con más de 6 carácteres. </div>");
             }
-            ?> <div class="mensajeInfoLogin"> <--PASSWORD--> Tamaño mínimo 6. Tamaño máximo 20. </div> <?php
+            array_push($mensaje,"<div class='mensajeInfoLogin'> <--PASSWORD--> Tamaño mínimo 6. Tamaño máximo 20. </div>");
             return False;
         }
     }
-    else{
+    else{ //no, username con tamaño incorrectos
         echo("Tamaños de Login incorrecto");
         if(strlen($username)<4){
-            ?> <div class="mensajesIncorrectosLogin"> Username introducido con pocos carácteres </div>
-            <div class="mensajeInfoLogin"> <--USERNAME--> Tamaño mínimo 4. Tamaño máximo 20. </div> <?php
-            // echo("Username introducido con pocos carácteres");
-            // echo("<--USERNAME--> Tamaño mínimo 4. Tamaño máximo 20. ");?> <br> <?php
-        }
+            array_push($mensaje,"<div class='mensajesIncorrectosLogin'> Username introducido con menos de 4 carácteres. </div>");
+            array_push($mensaje,"<div class='mensajeInfoLogin'> <--USERNAME--> Tamaño mínimo 4. Tamaño máximo 20. </div>");
+        } 
         else{
-            ?> <div class="mensajesIncorrectosLogin"> Username introducido con demasiados carácteres </div>
-            <div class="mensajeInfoLogin"> <--USERNAME--> Tamaño mínimo 4. Tamaño máximo 20. </div> <?php
-            // echo("Username introducido con demasiados carácteres");
-            // echo("<--USERNAME--> Tamaño mínimo 4. Tamaño máximo 20. ");?> <br> <?php
+            array_push($mensaje,"<div class='mensajesIncorrectosLogin'> Username introducido con más de 20 carácteres. </div>");
+            array_push($mensaje,"<div class='mensajeInfoLogin'> <--USERNAME--> Tamaño mínimo 4. Tamaño máximo 20. </div>");
         }
-        
+        //comprobamos también los tamaños del password
         if(strlen($password)<6){
-            ?> <div class="mensajesIncorrectosLogin"> Password introducido con pocos carácteres </div>
-            <div class="mensajeInfoLogin"> <--PASSWORD--> Tamaño mínimo 6. Tamaño máximo 20. </div> <?php
-            // echo("Password introducido con pocos carácteres");
-            // echo("<--PASSWORD--> Tamaño mínimo 6. Tamaño máximo 20. ");?> <br> <?php
+            array_push($mensaje,"<div class='mensajesIncorrectosLogin'> Password introducido con menos de 6 carácteres. </div>");
+            array_push($mensaje,"<div class='mensajeInfoLogin'> PASSWORD--> Tamaño mínimo 6. Tamaño máximo 20. </div>");
         }
         else{
-            ?> <div class="mensajesIncorrectosLogin"> Password introducido con demasiados carácteres </div>
-            <div class="mensajeInfoLogin"> <--PASSWORD--> Tamaño mínimo 6. Tamaño máximo 20. </div> <?php
-            // echo("Password introducido con demasiados carácteres");
-            // echo("<--PASSWORD--> Tamaño mínimo 6. Tamaño máximo 20. ");?> <br> <?php
+            array_push($mensaje,"<div class='mensajesIncorrectosLogin'> Password introducido con más de 20 carácteres. </div>");
+            array_push($mensaje,"<div class='mensajeInfoLogin'> PASSWORD--> Tamaño mínimo 6. Tamaño máximo 20. </div>");
         }
 
         return False; //login con tamaños incorrectos
@@ -175,23 +181,19 @@ function CheckSizeUserPass($username,$password){
 }
 
 
-//ENLAZAR $USERNAME Y PASSWORD CON LAS FUNCIONES DE LOS TEST
 CheckUserEmpty($username,$password);
 CheckSizeUserPass($username,$password);
 
-var_dump("ANTEaaaS", $_SESSION['loged']);?> <br> <?php 
+// var_dump("ANTEaaaS", $_SESSION['loged']);?> <br> <?php 
 $_SESSION['loged']=CheckUsernamePassword($username,$password);
 // var_dump("NOMBRE USUARIO",$username);
 
 
-var_dump("DESPUaaaES", $_SESSION['loged']);?> <br> <?php 
+// var_dump("DESPUaaaES", $_SESSION['loged']);?> <br> <?php 
 
 
 require __DIR__.'/../vista/vista_cabecera.php'; //no se actualiza el header no sé por qué //HEADER ABAJO
 require __DIR__.'/../vista/vista_EnviarLogin.php';
-
-
-
 
 
 ?>

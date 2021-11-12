@@ -130,3 +130,15 @@ h1{
 .mensajeInfoLogin{
     background-color: peru;
 }
+
+.fechaCalendario{
+    font-size: 20px;
+}
+
+.tituloCalendario{
+    font-size: 18px;
+}
+
+.descripcionCalendario{
+    font-size: 14px;
+}

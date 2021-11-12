@@ -6,8 +6,6 @@ $connexio=connectDB();
 
 require_once __DIR__.'/../vista/vista_cabecera.php';
 
-require_once __DIR__.'/../vista/vista_PaginaCalendario.php';
-
 
 function getRecordatorios($user_id){
     //Devolverá un listado de recordatorios
@@ -28,11 +26,9 @@ function getRecordatoriosMock($user_id){
     return $recordatorios;
 }
 $recordatorios=getRecordatoriosMock(1);
-foreach(array_keys($recordatorios) as $fecha_key){
-    var_dump($fecha_key);
-    echo " - ";
-    var_dump($recordatorios[$fecha_key]);
-    echo "<br>";
-}
+
+
+
+require_once __DIR__.'/../vista/vista_PaginaCalendario.php';
 
 ?>
