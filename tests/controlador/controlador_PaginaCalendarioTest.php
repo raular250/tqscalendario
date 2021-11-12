@@ -27,6 +27,14 @@ class CalendarioTest extends PHPUnit\Framework\TestCase{
         );
         $this->assertEquals($rec,$rec_manual);
     }
+    public function testGetRecordatoriosMock9999(){
+        $rec=getRecordatoriosMock(9999);
+        $this->assertEquals($rec,array());
+    }
+    public function testGetRecordatoriosMock_1(){
+        $rec=getRecordatoriosMock(-1);
+        $this->assertEquals($rec,array());
+    }
 }
 
 

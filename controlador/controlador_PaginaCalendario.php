@@ -21,9 +21,11 @@ function getRecordatoriosMock($user_id){
     return $recordatorios;
 }
 function getRecordatorios($user_id){
+    $recordatorios=array();
     return $recordatorios;
 }
-$recordatorios=getRecordatorios($_SESSION['userId']);
+$user_id=(isset($_SESSION['userId'])?$_SESSION['userId']:-1);
+$recordatorios=getRecordatorios($user_id);
 
 
 
