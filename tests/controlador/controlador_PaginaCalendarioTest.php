@@ -44,14 +44,304 @@ class CalendarioTest extends PHPUnit\Framework\TestCase{
         $nextRec=nextRec($ini,$fin,$freq,$ant,$date);
         $this->assertEquals("2021-11-13 09:55",$nextRec);
     }
-    public function testNextRecIni(){
+    public function testNextRecIni1(){
+        $ini="1970-01-01 00:00";
+        $fin="2022-01-01 10:00";
+        $freq="1D";
+        $ant="5m";
+        $date="2021-11-12 22:26";
+        $nextRec=nextRec($ini,$fin,$freq,$ant,$date);
+        $this->assertEquals("2021-11-12 23:55",$nextRec);
+    }
+    public function testNextRecIni2(){
+        $ini="2020-01 00:00";
+        $fin="2022-01-01 10:00";
+        $freq="1D";
+        $ant="5m";
+        $date="2021-11-12 22:26";
+        $nextRec=nextRec($ini,$fin,$freq,$ant,$date);
+        $this->assertEquals("2021-11-1223:55",$nextRec);
+    }
+    public function testNextRecIni3(){
+        $ini="2021-01 00:00";
+        $fin="2022-01-01 10:00";
+        $freq="1D";
+        $ant="5m";
+        $date="2021-11-12 22:26";
+        $nextRec=nextRec($ini,$fin,$freq,$ant,$date);
+        $this->assertEquals("2021-11-12 23:55",$nextRec);
+    }
+    public function testNextRecIni4(){
+        $ini="2021-11-11 00:00";
+        $fin="2022-01-01 10:00";
+        $freq="1D";
+        $ant="5m";
+        $date="2021-11-12 22:26";
+        $nextRec=nextRec($ini,$fin,$freq,$ant,$date);
+        $this->assertEquals("2021-11-12 23:55",$nextRec);
+    }
+    public function testNextRecIni5(){
+        $ini="2021-11-12 22:26";
+        $fin="2022-01-01 10:00";
+        $freq="1D";
+        $ant="5m";
+        $date="2021-11-12 22:26";
+        $nextRec=nextRec($ini,$fin,$freq,$ant,$date);
+        $this->assertEquals("2021-11-12 23:55",$nextRec);
+    }
+    public function testNextRecIni6(){
+        $ini="2021-11-12 22:26";
+        $fin="2022-01-01 10:00";
+        $freq="1D";
+        $ant="5m";
+        $date="2021-11-12 22:26";
+        $nextRec=nextRec($ini,$fin,$freq,$ant,$date);
+        $this->assertEquals("2021-11-13 22:21",$nextRec);
+    }
+    public function testNextRecIni7(){
+        $ini="2021-11-12 22:26";
+        $fin="2022-01-01 10:00";
+        $freq="1D";
+        $ant="5m";
+        $date="2021-11-12 22:26";
+        $nextRec=nextRec($ini,$fin,$freq,$ant,$date);
+        $this->assertEquals("2021-11-13 22:21",$nextRec);
+    }
+    public function testNextRecIni8(){
+        $ini="2022-01-01 10:00";
+        $fin="2022-01-01 10:00";
+        $freq="1D";
+        $ant="5m";
+        $date="2021-11-12 22:26";
+        $nextRec=nextRec($ini,$fin,$freq,$ant,$date);
+        $this->assertEquals("2021-11-13 09:55",$nextRec);
+    }
+    
+    public function testNextRecIni9(){
+        $ini="2025-01-01 10:00";
+        $fin="2022-01-01 10:00";
+        $freq="1D";
+        $ant="5m";
+        $date="2021-11-12 22:26";
+        $nextRec=nextRec($ini,$fin,$freq,$ant,$date);
+        $this->assertFalse($nextRec);
+    }
+    public function testNextRecFin1(){
+        $ini="2020-01-01 10:00";
+        $fin="1970-01-01 10:00";
+        $freq="1D";
+        $ant="5m";
+        $date="2021-11-12 22:26";
+        $nextRec=nextRec($ini,$fin,$freq,$ant,$date);
+        $this->assertFalse($nextRec);
+    }
+    public function testNextRecFin2(){
+        $ini="2020-01-01 10:00";
+        $fin="2020-01-01 09:59";
+        $freq="1D";
+        $ant="5m";
+        $date="2021-11-12 22:26";
+        $nextRec=nextRec($ini,$fin,$freq,$ant,$date);
+        $this->assertFalse($nextRec);
+    }
+    public function testNextRecFin3(){
+        $ini="2020-01-01 10:00";
+        $fin="2020-01-01 10:00";
+        $freq="1D";
+        $ant="5m";
+        $date="2021-11-12 22:26";
+        $nextRec=nextRec($ini,$fin,$freq,$ant,$date);
+        $this->assertFalse($nextRec);
+    }
+    public function testNextRecFin4(){
+        $ini="2020-01-01 10:00";
+        $fin="2020-01-01 10:01";
+        $freq="1D";
+        $ant="5m";
+        $date="2021-11-12 22:26";
+        $nextRec=nextRec($ini,$fin,$freq,$ant,$date);
+        $this->assertFalse($nextRec);
+    }
+    public function testNextRecFin5(){
+        $ini="2020-01-01 10:00";
+        $fin="2021-11-12 22:25";
+        $freq="1D";
+        $ant="5m";
+        $date="2021-11-12 22:26";
+        $nextRec=nextRec($ini,$fin,$freq,$ant,$date);
+        $this->assertFalse($nextRec);
+    }
+    public function testNextRecFin6(){
+        $ini="2020-01-01 10:00";
+        $fin="2021-11-12 22:26";
+        $freq="1D";
+        $ant="5m";
+        $date="2021-11-12 22:26";
+        $nextRec=nextRec($ini,$fin,$freq,$ant,$date);
+        $this->assertFalse($nextRec);
+    }
+    public function testNextRecFin7(){
+        $ini="2020-01-01 10:00";
+        $fin="2021-11-12 22:27";
+        $freq="1D";
+        $ant="5m";
+        $date="2021-11-12 22:26";
+        $nextRec=nextRec($ini,$fin,$freq,$ant,$date);
+        $this->assertFalse($nextRec);
+    }
+    public function testNextRecFin8(){
+        $ini="2020-01-01 10:00";
+        $fin="2022-11-12 22:27";
+        $freq="1D";
+        $ant="5m";
+        $date="2021-11-12 22:26";
+        $nextRec=nextRec($ini,$fin,$freq,$ant,$date);
+        $this->assertEquals("2021-11-13 09:55",$nextRec);
+    }
+    public function testNextRecFreq1(){
+        $ini="2020-01-01 10:00";
+        $fin="2022-11-12 22:27";
+        $freq="2D"; //1D,2D,3D..,1M,2M,3M...,1A,2A,3A...,once,daily,L-V",annually
+        $ant="5m";
+        $date="2021-11-12 22:26";
+        $nextRec=nextRec($ini,$fin,$freq,$ant,$date);
+        $this->assertEquals("2021-11-13 09:55",$nextRec);
+    }
+    public function testNextRecFreq2(){
+        $ini="2020-01-01 10:00";
+        $fin="2022-11-12 22:27";
+        $freq="1M";
+        $ant="5m";
+        $date="2021-11-12 22:26";
+        $nextRec=nextRec($ini,$fin,$freq,$ant,$date);
+        $this->assertEquals("2021-12-01 09:55",$nextRec);
+    }
+    
+    public function testNextRecFreq3(){
+        $ini="2020-01-01 10:00";
+        $fin="2022-11-12 22:27";
+        $freq="2M";
+        $ant="5m";
+        $date="2021-11-12 22:26";
+        $nextRec=nextRec($ini,$fin,$freq,$ant,$date);
+        $this->assertEquals("2022-01-01 09:55",$nextRec);
+    }
+    public function testNextRecFreq4(){
+        $ini="2020-01-01 10:00";
+        $fin="2022-11-12 22:27";
+        $freq="1A";
+        $ant="5m";
+        $date="2021-11-12 22:26";
+        $nextRec=nextRec($ini,$fin,$freq,$ant,$date);
+        $this->assertEquals("2022-01-01 09:55",$nextRec);
+    } 
+    public function testNextRecFreq5(){
+        $ini="2020-01-01 10:00";
+        $fin="2022-11-12 22:27";
+        $freq="once";
+        $ant="5m";
+        $date="2021-11-12 22:26";
+        $nextRec=nextRec($ini,$fin,$freq,$ant,$date);
+        $this->assertFalse($nextRec);
+    } 
+    public function testNextRecFreq6(){
+        $ini="2020-01-01 10:00";
+        $fin="2022-11-12 22:27";
+        $freq="daily";
+        $ant="5m";
+        $date="2021-11-12 22:26";
+        $nextRec=nextRec($ini,$fin,$freq,$ant,$date);
+        $this->assertEquals("2021-11-13 09:55",$nextRec);
+    } 
+    public function testNextRecFreq7(){
+        $ini="2020-01-01 10:00";
+        $fin="2022-11-12 22:27";
+        $freq="L-V";
+        $ant="5m";
+        $date="2021-11-12 22:26";
+        $nextRec=nextRec($ini,$fin,$freq,$ant,$date);
+        $this->assertEquals("2021-11-15 09:55",$nextRec);
+    } 
+    public function testNextRecFreq8(){
+        $ini="2020-01-01 10:00";
+        $fin="2022-11-12 22:27";
+        $freq="annually";
+        $ant="5m";
+        $date="2021-11-12 22:26";
+        $nextRec=nextRec($ini,$fin,$freq,$ant,$date);
+        $this->assertEquals("2022-01-01 09:55",$nextRec);
+    } 
+    public function testNextRecAnt1(){
+        $ini="2020-01-01 10:00";
+        $fin="2022-11-12 22:27";
+        $freq="1D";
+        $ant="1h";
+        $date="2021-11-12 22:26";
+        $nextRec=nextRec($ini,$fin,$freq,$ant,$date);
+        $this->assertEquals("2021-11-13 09:00",$nextRec);
+    }
+    public function testNextRecAnt2(){
+        $ini="2020-01-01 10:00";
+        $fin="2022-11-12 22:27";
+        $freq="1D";
+        $ant="1d";
+        $date="2021-11-12 22:26";
+        $nextRec=nextRec($ini,$fin,$freq,$ant,$date);
+        $this->assertEquals("2021-11-13 10:00",$nextRec);
+    }
+    public function testNextRecAnt3(){
+        $ini="2020-01-01 10:00";
+        $fin="2022-11-12 22:27";
+        $freq="once";
+        $ant="1s";
+        $date="2021-11-12 22:26";
+        $nextRec=nextRec($ini,$fin,$freq,$ant,$date);
+        $this->assertFalse($nextRec);
+    }
+    public function testNextDate1(){
         $ini="2020-01-01 10:00";
         $fin="2022-01-01 10:00";
         $freq="1D";       //1D,2D,3D..,1M,2M,3M...,1A,2A,3A...,once,daily,L-V",annually
         $ant="5m";        //5m,1h,1d,1s
-        $date="2021-11-12 22:26";
+        $date="1970-11-12 22:26";
         $nextRec=nextRec($ini,$fin,$freq,$ant,$date);
-        $this->assertEquals("2021-11-13 09:55",$nextRec);
+        $this->assertEquals("2020-01-01 09:55",$nextRec);
+    }
+    public function testNextDate2(){
+        $ini="2020-01-01 10:00";
+        $fin="2022-01-01 10:00";
+        $freq="1D";       //1D,2D,3D..,1M,2M,3M...,1A,2A,3A...,once,daily,L-V",annually
+        $ant="5m";        //5m,1h,1d,1s
+        $date="2020-01-01 09:55";
+        $nextRec=nextRec($ini,$fin,$freq,$ant,$date);
+        $this->assertEquals("2020-01-02 09:55",$nextRec);
+    }
+    public function testNextDate3(){
+        $ini="2020-01-01 10:00";
+        $fin="2022-01-01 10:00";
+        $freq="1D";       //1D,2D,3D..,1M,2M,3M...,1A,2A,3A...,once,daily,L-V",annually
+        $ant="5m";        //5m,1h,1d,1s
+        $date="2020-01-01 10:55";
+        $nextRec=nextRec($ini,$fin,$freq,$ant,$date);
+        $this->assertEquals("2020-01-02 09:55",$nextRec);
+    }
+    public function testNextDate4(){
+        $ini="2020-01-01 10:00";
+        $fin="2022-01-01 10:00";
+        $freq="1D";       //1D,2D,3D..,1M,2M,3M...,1A,2A,3A...,once,daily,L-V",annually
+        $ant="5m";        //5m,1h,1d,1s
+        $date="2022-01-01 09:55";
+        $nextRec=nextRec($ini,$fin,$freq,$ant,$date);
+        $this->assertEquals("2022-01-01 09:55",$nextRec);
+    }
+    public function testNextDate5(){
+        $ini="2020-01-01 10:00";
+        $fin="2022-01-01 10:00";
+        $freq="1D";       //1D,2D,3D..,1M,2M,3M...,1A,2A,3A...,once,daily,L-V",annually
+        $ant="5m";        //5m,1h,1d,1s
+        $date="2024-01-01 09:55";
+        $nextRec=nextRec($ini,$fin,$freq,$ant,$date);
+        $this->assertFalse($nextRec);
     }
 }
 
