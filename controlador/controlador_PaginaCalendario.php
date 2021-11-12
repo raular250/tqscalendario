@@ -2,8 +2,8 @@
 
 //connexio a la base de dades
 require_once __DIR__.'/../model/model_connectDB.php';
+require_once __DIR__.'/../model/model_paginaCalendario.php';
 $connexio=connectDB();
-
 require_once __DIR__.'/../vista/vista_cabecera.php';
 
 function getRecordatoriosMock($user_id){
@@ -20,12 +20,26 @@ function getRecordatoriosMock($user_id){
     }
     return $recordatorios;
 }
-function getRecordatorios($user_id){
-    $recordatorios=array();
+function nextRec($ini,$fin,$freq,$ant,$date){
+    $nextRec="";
+    return $nextRec;
+}
+function getRecordatorios($user_id,$connexio){
+    $recordatorios=getRecordatoriosBD($connexio,$user_id);
+    foreach($recordatorios as $r){
+        $titulo=$r[1];
+        $ini=$r[2];
+        $fin=$r[3];
+        $freq=$r[4];
+        $ant=$r[5];
+        $desc=$r[6];
+        var_dump(date("Y-m-d H:i"));
+        $nextRec=nextRec($ini,$fin,$freq,$ant,$date);
+    }
     return $recordatorios;
 }
 $user_id=(isset($_SESSION['userId'])?$_SESSION['userId']:-1);
-$recordatorios=getRecordatorios($user_id);
+$recordatorios=getRecordatorios($user_id,$connexio);
 
 
 
