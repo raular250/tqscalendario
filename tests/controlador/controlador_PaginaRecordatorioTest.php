@@ -14,8 +14,8 @@ class RecordatorioTest extends PHPUnit\Framework\TestCase{
 
     public function testCreaRecordatorioTitulo(){
         $titulo="titulo";
-        $inicio="2020-01-01T00%3A00";
-        $fin="2020-01-01T00%3A05";
+        $inicio="2020-01-01T00:00";
+        $fin="2020-01-01T00:05";
         $freq="once";
         $anterioridad="5m";
         $rep="";
@@ -26,8 +26,8 @@ class RecordatorioTest extends PHPUnit\Framework\TestCase{
     }
     public function testCreaRecordatorioInicio(){
         $titulo="titulo";
-        $inicio="2020-01-01T00%3A00";
-        $fin="2020-01-01T00%3A05";
+        $inicio="2020-01-01T00:00";
+        $fin="2020-01-01T00:05";
         $freq="once";
         $anterioridad="5m";
         $rep="";
@@ -38,8 +38,8 @@ class RecordatorioTest extends PHPUnit\Framework\TestCase{
     }
     public function testCreaRecordatorioFin(){
         $titulo="titulo";
-        $inicio="2020-01-01T00%3A00";
-        $fin="2020-01-01T00%3A05";
+        $inicio="2020-01-01T00:00";
+        $fin="2020-01-01T00:05";
         $freq="once";
         $anterioridad="5m";
         $rep="";
@@ -50,8 +50,8 @@ class RecordatorioTest extends PHPUnit\Framework\TestCase{
     }
     public function testCreaRecordatorioFrequency(){
         $titulo="titulo";
-        $inicio="2020-01-01T00%3A00";
-        $fin="2020-01-01T00%3A05";
+        $inicio="2020-01-01T00:00";
+        $fin="2020-01-01T00:05";
         $freq="once";
         $anterioridad="5m";
         $rep="";
@@ -62,8 +62,8 @@ class RecordatorioTest extends PHPUnit\Framework\TestCase{
     }
     public function testCreaRecordatorioAnterioridad(){
         $titulo="titulo";
-        $inicio="2020-01-01T00%3A00";
-        $fin="2020-01-01T00%3A05";
+        $inicio="2020-01-01T00:00";
+        $fin="2020-01-01T00:05";
         $freq="once";
         $anterioridad="5m";
         $rep="";
@@ -74,8 +74,8 @@ class RecordatorioTest extends PHPUnit\Framework\TestCase{
     }
     public function testCreaRecordatorioDescription(){
         $titulo="titulo";
-        $inicio="2020-01-01T00%3A00";
-        $fin="2020-01-01T00%3A05";
+        $inicio="2020-01-01T00:00";
+        $fin="2020-01-01T00:05";
         $freq="once";
         $anterioridad="5m";
         $rep="";
@@ -86,8 +86,8 @@ class RecordatorioTest extends PHPUnit\Framework\TestCase{
     }
     public function testCreaRecordatorioFreq1(){
         $titulo="titulo";
-        $inicio="2020-01-01T00%3A00";
-        $fin="2020-01-01T00%3A05";
+        $inicio="2020-01-01T00:00";
+        $fin="2020-01-01T00:05";
         $freq="once";
         $anterioridad="5m";
         $rep="";
@@ -98,8 +98,8 @@ class RecordatorioTest extends PHPUnit\Framework\TestCase{
     }
     public function testCreaRecordatorioFreq2(){
         $titulo="titulo";
-        $inicio="2020-01-01T00%3A00";
-        $fin="2020-01-01T00%3A05";
+        $inicio="2020-01-01T00:00";
+        $fin="2020-01-01T00:05";
         $freq="daily";
         $anterioridad="1h";
         $rep="";
@@ -110,8 +110,8 @@ class RecordatorioTest extends PHPUnit\Framework\TestCase{
     }
     public function testCreaRecordatorioFreq3(){
         $titulo="titulo";
-        $inicio="2020-01-01T00%3A00";
-        $fin="2020-01-01T00%3A05";
+        $inicio="2020-01-01T00:00";
+        $fin="2020-01-01T00:05";
         $freq="L-V";
         $anterioridad="1d";
         $rep="";
@@ -122,8 +122,8 @@ class RecordatorioTest extends PHPUnit\Framework\TestCase{
     }
     public function testCreaRecordatorioFreq4(){
         $titulo="titulo";
-        $inicio="2020-01-01T00%3A00";
-        $fin="2020-01-01T00%3A05";
+        $inicio="2020-01-01T00:00";
+        $fin="2020-01-01T00:05";
         $freq="annually";
         $anterioridad="1s";
         $rep="";
@@ -134,8 +134,8 @@ class RecordatorioTest extends PHPUnit\Framework\TestCase{
     }
     public function testCreaRecordatoriRep1(){
         $titulo="titulo";
-        $inicio="2020-01-01T00%3A00";
-        $fin="2020-01-01T00%3A05";
+        $inicio="2020-01-01T00:00";
+        $fin="2020-01-01T00:05";
         $freq="other";
         $anterioridad="1s";
         $rep="";
@@ -146,8 +146,8 @@ class RecordatorioTest extends PHPUnit\Framework\TestCase{
     }
     public function testCreaRecordatoriRep2(){
         $titulo="titulo";
-        $inicio="2020-01-01T00%3A00";
-        $fin="2020-01-01T00%3A05";
+        $inicio="2020-01-01T00:00";
+        $fin="2020-01-01T00:05";
         $freq="other";
         $anterioridad="1s";
         $rep="1";
@@ -163,8 +163,8 @@ class RecordatorioTest extends PHPUnit\Framework\TestCase{
     }
     public function testCreaRecordatoriRep3(){
         $titulo="titulo";
-        $inicio="2020-01-01T00%3A00";
-        $fin="2020-01-01T00%3A05";
+        $inicio="2020-01-01T00:00";
+        $fin="2020-01-01T00:05";
         $freq="other";
         $anterioridad="1s";
         $rep="5";
@@ -180,8 +180,8 @@ class RecordatorioTest extends PHPUnit\Framework\TestCase{
     }
     public function testCreaRecordatoriRep4(){
         $titulo="titulo";
-        $inicio="2020-01-01T00%3A00";
-        $fin="2020-01-01T00%3A05";
+        $inicio="2020-01-01T00:00";
+        $fin="2020-01-01T00:05";
         $freq="other";
         $anterioridad="1s";
         $rep="2";
@@ -198,8 +198,8 @@ class RecordatorioTest extends PHPUnit\Framework\TestCase{
     }
     public function testCreaRecordatoriDescription(){
         $titulo="titulo";
-        $inicio="2020-01-01T00%3A00";
-        $fin="2020-01-01T00%3A05";
+        $inicio="2020-01-01T00:00";
+        $fin="2020-01-01T00:05";
         $freq="other";
         $anterioridad="1s";
         $rep="2";
@@ -214,12 +214,10 @@ class RecordatorioTest extends PHPUnit\Framework\TestCase{
         $this->assertEquals("Hola esto es una descripcion",$rec->descripcion);
     }
     public function TestnextRecordatorio1(){
-        //$recordatorio1=("titulo","05-11-2021-15:00","10-10-2022-00:00",5,"dia")
         $next_rec=$recordatorio1->nextRecordatorio("02-11-2021 11:11");
         $this->assertEquals("05-11-2021 14:55",$next_rec);
     }
     public function TestnextRecordatorio2(){
-        //$recordatorio1=("titulo","05-11-2021-15:00","10-10-2022-00:00",5,"dia")
         $next_rec=$recordatorio1->nextRecordatorio("02-11-2021 11:11");
         $this->assertEquals("05-11-2021 14:55",$next_rec);
     }
