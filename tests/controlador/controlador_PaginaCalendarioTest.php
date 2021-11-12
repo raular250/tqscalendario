@@ -35,6 +35,15 @@ class CalendarioTest extends PHPUnit\Framework\TestCase{
         $rec=getRecordatoriosMock(-1);
         $this->assertEquals($rec,array());
     }
+    public function testNextRec1(){
+        $ini="2020-01-01 10:00";
+        $fin="2022-01-01 10:00";
+        $freq="1D";       //1D,2D,3D..,1M,2M,3M...,1A,2A,3A...,once,daily,L-V",annually
+        $ant="5m";        //5m,1h,1d,1s
+        $date="2021-11-12 22:26";
+        $nextRec=nextRec($ini,$fin,$freq,$ant,$date);
+        $this->assertEquals("2021-11-13 09:55",$nextRec);
+    }
 }
 
 

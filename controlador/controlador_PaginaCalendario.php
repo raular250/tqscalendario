@@ -33,14 +33,15 @@ function getRecordatorios($user_id,$connexio){
         $freq=$r[4];
         $ant=$r[5];
         $desc=$r[6];
+        $date=date("Y-m-d H:i");
         var_dump(date("Y-m-d H:i"));
         $nextRec=nextRec($ini,$fin,$freq,$ant,$date);
     }
+    $recordatorios=array();
     return $recordatorios;
 }
 $user_id=(isset($_SESSION['userId'])?$_SESSION['userId']:-1);
 $recordatorios=getRecordatorios($user_id,$connexio);
-
 
 
 require_once __DIR__.'/../vista/vista_PaginaCalendario.php';
