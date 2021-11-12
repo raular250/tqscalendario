@@ -185,7 +185,7 @@ if(isset($_POST['submit'])){
     $_SESSION['loged']=CheckUsernamePassword($username,$password);
    
 }
-require __DIR__.'/../vista/vista_cabecera.php'; //no se actualiza el header no sé por qué //HEADER ABAJO
+require __DIR__.'/../vista/vista_cabecera.php';
 require __DIR__.'/../vista/vista_EnviarLogin.php';
 
 

@@ -3,7 +3,7 @@
 
 <div>
 
-    <h2 >Creación de un recordatorio:</h2>
+    <h2 >CREACIÓN DE UN RECORDATORIO:</h2>
     
     <form class="formulario" method="post" target="_self" action="index.php?accio=crearRecordatorio">
     <p>Título del recordatorio: <input type="text" name="titulo" required></p>

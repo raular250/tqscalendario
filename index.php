@@ -68,6 +68,15 @@ switch($accio) {
         }
         break;
 
+    case 'paginaMisRecordatorios':
+        if((isset($_SESSION['loged']) && $_SESSION['loged']==TRUE)){
+            require __DIR__ . '/recurso_paginaMisRecordatorios.php';
+        }
+        else {
+            require __DIR__ . '/recurso_errorNoLoged.php';
+        }
+        break;
+
 
     default:
         require_once __DIR__ . '/recurso_PaginaInicio.php';

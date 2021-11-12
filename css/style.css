@@ -146,3 +146,14 @@ h1{
 .errorLoged{
     background-color: red;
 }
+
+table, td, th{
+    text-align: center;
+    border: 1px solid black; 
+}
+
+table{
+    width: 50%;
+    border-collapse: collapse;
+}
+
