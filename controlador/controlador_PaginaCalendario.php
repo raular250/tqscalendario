@@ -20,8 +20,28 @@ function getRecordatoriosMock($user_id){
     }
     return $recordatorios;
 }
+function minusAnt($nextRec,$ant){
+    //Restar a nextRec la anterioridad de $ant;
+    return $nextRec;
+}
 function nextRec($ini,$fin,$freq,$ant,$date){
-    $nextRec="";
+    switch($freq){//1D,2D,3D..,1M,2M,3M...,1A,2A,3A...,once,daily,L-V",annually
+        case "once":
+            if($ini<$date){
+                $nextRec=false;
+            }else{
+                minusAnt($nextRec,$ant);
+                $nextRec=date('Y-m-d H:i', strtotime($ini. ' - 5 days'));
+            }
+            break;
+        case "daily":
+            break;
+        case "L-V":
+            break;
+        case "annually":
+            break;
+    }
+    $nextRec=date('Y-m-d H:i', strtotime($date. ' + 5 days'));
     return $nextRec;
 }
 function getRecordatorios($user_id,$connexio){
@@ -34,7 +54,6 @@ function getRecordatorios($user_id,$connexio){
         $ant=$r[5];
         $desc=$r[6];
         $date=date("Y-m-d H:i");
-        var_dump(date("Y-m-d H:i"));
         $nextRec=nextRec($ini,$fin,$freq,$ant,$date);
     }
     $recordatorios=array();
