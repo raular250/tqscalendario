@@ -149,3 +149,5 @@ DB/data/mysql/db.MAI
 .phpunit.result.cache
 .phpunit.result.cache
 .phpunit.result.cache
+.phpunit.result.cache
+*.cache

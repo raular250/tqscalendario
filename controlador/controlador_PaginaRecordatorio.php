@@ -31,7 +31,31 @@ class Recordatorio{
 
 //get values and construct a Recordatorio
 function creaRecordatorio($titulo,$inicio,$fin,$freq,$anterioridad,$rep,$freqRep,$descripcion){
-
+    $titulo=$titulo;
+    //inicio
+    $tmp=explode('T',$inicio);
+    $inicio=$tmp[0];
+    $tmp=explode('%3A',$tmp[1]);
+    $hora=$tmp[0];
+    $min=$tmp[1];
+    $inicio=$inicio.' '.$hora.'-'.$min;
+    //fin
+    $tmp=explode('T',$fin);
+    $fin=$tmp[0];
+    $tmp=explode('%3A',$tmp[1]);
+    $hora=$tmp[0];
+    $min=$tmp[1];
+    $fin=$fin.' '.$hora.'-'.$min;
+    //freq
+    if($freq!='other'){
+        $freq=$freq;
+    }else{
+        $freq=$rep.$freqRep;
+    }
+    $anterioridad=$anterioridad;
+    $descripcion=$descripcion;
+    $recordatorio=new Recordatorio($titulo,$inicio,$fin,$freq,$anterioridad,$descripcion);
+    return $recordatorio;
 }
 //show values
 ?>
