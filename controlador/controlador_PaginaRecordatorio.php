@@ -53,6 +53,26 @@ function creaRecordatorio($titulo,$inicio,$fin,$freq,$anterioridad,$rep,$freqRep
 }
 
 function insertRecordatorioBD($recordatorio,$user_id,$connexio){
+    $titulo=$recordatorio->titulo;
+    $inicio=$recordatorio->inicio;
+    $fin=$recordatorio->fin;
+    $freq=$recordatorio->repeticion;
+    $anterioridad=$recordatorio->anterioridad;
+    $descripcion=$recordatorio->descripcion;
+    try{
+        $consulta_id=$connexio->prepare("INSERT INTO recordatorios (titulo,inicio,fin,frequencia,anterioridad,descripcion,user_id) VALUES ('$titulo','$inicio','$fin','$freq','$anterioridad','$descripcion','$user_id')");
+        $consulta_id->execute();
+        if($error=$consulta_id->error !=""){
+            echo $error;
+            return false;
+        }
+        echo "Recordatorio insertado!";
+        return true;
+    }catch (PDOException $e){
+        echo "ERROR: " . $e->getMessage();
+        return false;
+    }
+    $connexio=null;
 }
 if(isset($_POST['submitRecordatorio'])){
     $titulo = $_POST['titulo'];
