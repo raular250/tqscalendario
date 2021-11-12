@@ -6,11 +6,6 @@ $connexio=connectDB();
 
 require_once __DIR__.'/../vista/vista_cabecera.php';
 
-
-function getRecordatorios($user_id){
-    //Devolverá un listado de recordatorios
-}
-
 function getRecordatoriosMock($user_id){
     if($user_id==1){
         $recordatorios= array(
@@ -25,7 +20,10 @@ function getRecordatoriosMock($user_id){
     }
     return $recordatorios;
 }
-$recordatorios=getRecordatoriosMock(1);
+function getRecordatorios($user_id){
+    return $recordatorios;
+}
+$recordatorios=getRecordatorios($_SESSION['userId']);
 
 
 
