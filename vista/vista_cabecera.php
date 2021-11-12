@@ -4,18 +4,19 @@
 <header id="cabecera">
     <div class="icons_header">
     <ul class="nav">
-        <li class="icon_inicio"><img src="./assets/img/icons/portada.png"> <a href="/tqscalendario/index.php?accio=paginaPrincipal"> Inicio </a></li>
-        <li class="icon_calendario"><img src="./assets/img/icons/calendario.png"> <a href="/tqscalendario/index.php?accio=paginaCalendario"> Calendario </a></li>
-        <li class="icon_recordatorio"><img src="./assets/img/icons/recordatorio.png"> 
-            <a href="/tqscalendario/index.php?accio=paginaRecordatorio">Recordatorios</a>
-            <ul>
-                <li><a href="/tqscalendario/index.php?accio=paginaRecordatorio">Crear recordatorio</a></li>
-                <li><a href="/tqscalendario/index.php?accio=paginaVerRecordatorios">Mis recordatorios</a></li>
-            </ul>
-        </li>
 
-        
+
         <?php if((isset($_SESSION['loged']) && $_SESSION['loged']==TRUE)){ ?>
+            <li class="icon_inicio"><img src="./assets/img/icons/portada.png"> <a href="/tqscalendario/index.php?accio=paginaPrincipal"> Inicio </a></li>
+            <li class="icon_calendario"><img src="./assets/img/icons/calendario.png"> <a href="/tqscalendario/index.php?accio=paginaCalendario"> Calendario </a></li>
+            <li class="icon_recordatorio"><img src="./assets/img/icons/recordatorio.png"> 
+                <a href="/tqscalendario/index.php?accio=paginaRecordatorio">Recordatorios</a>
+                <ul>
+                    <li><a href="/tqscalendario/index.php?accio=paginaRecordatorio">Crear recordatorio</a></li>
+                    <li><a href="/tqscalendario/index.php?accio=paginaVerRecordatorios">Mis recordatorios</a></li>
+                </ul>
+            </li>
+            
             <li class="icon_login"><img src="./assets/img/icons/login.png">
                 <a href="/tqscalendario/index.php?accio=paginaPrincipal"> <?php echo($_SESSION['username']); ?></a>
                 <ul>
@@ -24,6 +25,7 @@
             </li>           
         <?php }
         else { ?>
+            <li class="icon_inicio"><img src="./assets/img/icons/portada.png"> <a href="/tqscalendario/index.php?accio=paginaPrincipal"> Inicio </a></li>
             <li class="icon_login"><img src="./assets/img/icons/login.png">
                 <a  href="/tqscalendario/index.php?accio=paginaLogin"> Login </a>
             </li>
