@@ -5,7 +5,7 @@
 
 <?php
 
-require __DIR__ .'/controlador/controlador_EnviarLogin.php';
+require_once __DIR__ .'/controlador/controlador_EnviarLogin.php';
 
 ?>
 

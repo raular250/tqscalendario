@@ -142,3 +142,7 @@ h1{
 .descripcionCalendario{
     font-size: 14px;
 }
+
+.errorLoged{
+    background-color: red;
+}

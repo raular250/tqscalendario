@@ -14,12 +14,22 @@ switch($accio) {
         require __DIR__ . '/recurso_PaginaInicio.php';
         break;
 
-    case 'paginaCalendario':
-        require __DIR__ . '/recurso_PaginaCalendario.php';
+    case 'paginaCalendario':        
+        if((isset($_SESSION['loged']) && $_SESSION['loged']==TRUE)){
+            require __DIR__ . '/recurso_PaginaCalendario.php';
+        }
+        else {
+            require __DIR__ . '/recurso_errorNoLoged.php';
+        }
         break;
 
     case 'paginaRecordatorio':
-        require __DIR__ . '/recurso_PaginaRecordatorio.php';
+        if((isset($_SESSION['loged']) && $_SESSION['loged']==TRUE)){
+            require __DIR__ . '/recurso_PaginaRecordatorio.php';
+        }
+        else {
+            require __DIR__ . '/recurso_errorNoLoged.php';
+        }
         break;
 
     case 'paginaLogin':
