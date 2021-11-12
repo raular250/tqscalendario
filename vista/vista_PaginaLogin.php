@@ -29,7 +29,7 @@
             <a>Password: <input type="password" name="passwordLogin" required/><br /></a>
             
             <a><input type="reset" value="Borrar" style="margin-bottom: 5px;"></a>
-            <a><input type="submit" value="Enviar"></a>
+            <a><input type="submit" name="submit" value="Enviar"></a>
         </form>
 
     </section>

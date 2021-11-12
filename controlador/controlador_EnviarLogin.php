@@ -5,17 +5,6 @@ require_once __DIR__.'/../model/model_connectDB.php';
 require_once __DIR__.'/../model/model_getUserID.php';
 require_once __DIR__.'/../model/model_getUsers.php';
 
-$mensaje=array();
-
-$connexio=connectDB();
-
-$username=$_POST['usernameLogin'];
-$password=$_POST['passwordLogin'];
-// echo("USERNAME");
-// var_dump($username);
-// echo("PASSWORD");
-// var_dump($password);
-require_once __DIR__.'/../model/model_paginaLogin.php';
 
 
 class Usuario {
@@ -180,18 +169,22 @@ function CheckSizeUserPass($username,$password){
 
 }
 
+$mensaje=array();
 
-CheckUserEmpty($username,$password);
-CheckSizeUserPass($username,$password);
+$connexio=connectDB();
+require_once __DIR__.'/../model/model_paginaLogin.php';
 
-// var_dump("ANTEaaaS", $_SESSION['loged']);?> <br> <?php 
-$_SESSION['loged']=CheckUsernamePassword($username,$password);
-// var_dump("NOMBRE USUARIO",$username);
+if(isset($_POST['submit'])){
+    $username=$_POST['usernameLogin'];
+    $password=$_POST['passwordLogin'];
 
+    
+    CheckUserEmpty($username,$password);
+    CheckSizeUserPass($username,$password);
 
-// var_dump("DESPUaaaES", $_SESSION['loged']);?> <br> <?php 
-
-
+    $_SESSION['loged']=CheckUsernamePassword($username,$password);
+   
+}
 require __DIR__.'/../vista/vista_cabecera.php'; //no se actualiza el header no sé por qué //HEADER ABAJO
 require __DIR__.'/../vista/vista_EnviarLogin.php';
 

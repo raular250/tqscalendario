@@ -3,7 +3,7 @@
 <body class="center">
 
 
-    <?php if($_SESSION['loged']==TRUE){ ?>
+    <?php if(isset($_SESSION['loged']) && $_SESSION['loged']==TRUE){ ?>
 
         <h2> Bienvenid@ <?php print_r($_SESSION['username']) ?>, has iniciado sesión correctamente.</h2> <br>
 
