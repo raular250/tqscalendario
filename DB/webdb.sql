@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 12, 2021 at 09:37 PM
+-- Generation Time: Nov 12, 2021 at 10:41 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.11
 
@@ -51,7 +51,31 @@ INSERT INTO `recordatorios` (`id`, `titulo`, `inicio`, `fin`, `frequencia`, `ant
 (9, 'titulo', '2020-01-01 00:00:00', '2020-01-01 00:05:00', '2A', '1s', 'Hola esto es una descripcion', 1),
 (11, 'titulo', '2020-01-01 00:00:00', '2020-01-01 00:05:00', '2A', '1s', 'Hola esto es una descripcion', 1),
 (13, 'titulo', '2020-01-01 00:00:00', '2020-01-01 00:05:00', '2A', '1s', 'Hola esto es una descripcion', 1),
-(15, 'titulo', '2020-01-01 00:00:00', '2020-01-01 00:05:00', '2A', '1s', 'Hola esto es una descripcion', 1);
+(15, 'titulo', '2020-01-01 00:00:00', '2020-01-01 00:05:00', '2A', '1s', 'Hola esto es una descripcion', 1),
+(17, 'titulo', '2020-01-01 00:00:00', '2020-01-01 00:05:00', '2A', '1s', 'Hola esto es una descripcion', 1),
+(19, 'titulo', '2020-01-01 00:00:00', '2020-01-01 00:05:00', '2A', '1s', 'Hola esto es una descripcion', 1),
+(21, 'titulo', '2020-01-01 00:00:00', '2020-01-01 00:05:00', '2A', '1s', 'Hola esto es una descripcion', 1),
+(23, 'titulo', '2020-01-01 00:00:00', '2020-01-01 00:05:00', '2A', '1s', 'Hola esto es una descripcion', 1),
+(25, 'titulo', '2020-01-01 00:00:00', '2020-01-01 00:05:00', '2A', '1s', 'Hola esto es una descripcion', 1),
+(27, 'titulo', '2020-01-01 00:00:00', '2020-01-01 00:05:00', '2A', '1s', 'Hola esto es una descripcion', 1),
+(29, 'titulo', '2020-01-01 00:00:00', '2020-01-01 00:05:00', '2A', '1s', 'Hola esto es una descripcion', 1),
+(31, 'titulo', '2020-01-01 00:00:00', '2020-01-01 00:05:00', '2A', '1s', 'Hola esto es una descripcion', 1),
+(33, 'titulo', '2020-01-01 00:00:00', '2020-01-01 00:05:00', '2A', '1s', 'Hola esto es una descripcion', 1),
+(35, 'titulo', '2020-01-01 00:00:00', '2020-01-01 00:05:00', '2A', '1s', 'Hola esto es una descripcion', 1),
+(37, 'titulo', '2020-01-01 00:00:00', '2020-01-01 00:05:00', '2A', '1s', 'Hola esto es una descripcion', 1),
+(39, 'titulo', '2020-01-01 00:00:00', '2020-01-01 00:05:00', '2A', '1s', 'Hola esto es una descripcion', 1),
+(41, 'titulo', '2020-01-01 00:00:00', '2020-01-01 00:05:00', '2A', '1s', 'Hola esto es una descripcion', 1),
+(43, 'titulo', '2020-01-01 00:00:00', '2020-01-01 00:05:00', '2A', '1s', 'Hola esto es una descripcion', 1),
+(45, 'titulo', '2020-01-01 00:00:00', '2020-01-01 00:05:00', '2A', '1s', 'Hola esto es una descripcion', 1),
+(47, 'titulo', '2020-01-01 00:00:00', '2020-01-01 00:05:00', '2A', '1s', 'Hola esto es una descripcion', 1),
+(49, 'titulo', '2020-01-01 00:00:00', '2020-01-01 00:05:00', '2A', '1s', 'Hola esto es una descripcion', 1),
+(51, 'titulo', '2020-01-01 00:00:00', '2020-01-01 00:05:00', '2A', '1s', 'Hola esto es una descripcion', 1),
+(53, 'titulo', '2020-01-01 00:00:00', '2020-01-01 00:05:00', '2A', '1s', 'Hola esto es una descripcion', 1),
+(55, 'titulo', '2020-01-01 00:00:00', '2020-01-01 00:05:00', '2A', '1s', 'Hola esto es una descripcion', 1),
+(57, 'titulo', '2020-01-01 00:00:00', '2020-01-01 00:05:00', '2A', '1s', 'Hola esto es una descripcion', 1),
+(59, 'titulo', '2020-01-01 00:00:00', '2020-01-01 00:05:00', '2A', '1s', 'Hola esto es una descripcion', 1),
+(61, 'titulo', '2020-01-01 00:00:00', '2020-01-01 00:05:00', '2A', '1s', 'Hola esto es una descripcion', 1),
+(63, 'dfghdfgh', '2020-01-01 00:00:00', '2020-01-01 00:05:00', 'once', '5m', 'dfghdfghf', 3);
 
 -- --------------------------------------------------------
 
@@ -102,7 +126,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT for table `recordatorios`
 --
 ALTER TABLE `recordatorios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 
 --
 -- AUTO_INCREMENT for table `usuarios`
