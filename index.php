@@ -34,6 +34,10 @@ switch($accio) {
         require __DIR__ . '/recurso_paginaLogout.php';
         break;
 
+    case 'crearRecordatorio':
+        require __DIR__ . '/recurso_PaginaRecordatorio.php';
+        break;
+
 
     default:
         require_once __DIR__ . '/recurso_PaginaInicio.php';

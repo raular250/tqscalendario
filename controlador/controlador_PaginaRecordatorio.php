@@ -3,7 +3,6 @@
 //connexio a la base de dades
 require_once __DIR__.'/../model/model_connectDB.php';
 $connexio=connectDB();
-
 require __DIR__.'/../vista/vista_cabecera.php';
 
 require_once __DIR__.'/../vista/vista_PaginaRecordatorio.php';
@@ -30,22 +29,16 @@ class Recordatorio{
 }
 
 //get values and construct a Recordatorio
-function creaRecordatorio($titulo,$inicio,$fin,$freq,$anterioridad,$rep,$freqRep,$descripcion){
+function creaRecordatorio($titulo,$inicio,$fin,$freq,$anterioridad,$rep,$freqRep,$descripcion,$idUser){
     $titulo=$titulo;
     //inicio
     $tmp=explode('T',$inicio);
     $inicio=$tmp[0];
-    $tmp=explode('%3A',$tmp[1]);
-    $hora=$tmp[0];
-    $min=$tmp[1];
-    $inicio=$inicio.' '.$hora.':'.$min;
+    $inicio=$inicio.' '.$tmp[1];
     //fin
     $tmp=explode('T',$fin);
     $fin=$tmp[0];
-    $tmp=explode('%3A',$tmp[1]);
-    $hora=$tmp[0];
-    $min=$tmp[1];
-    $fin=$fin.' '.$hora.':'.$min;
+    $fin=$fin.' '.$tmp[1];
     //freq
     if($freq!='other'){
         $freq=$freq;
@@ -55,7 +48,24 @@ function creaRecordatorio($titulo,$inicio,$fin,$freq,$anterioridad,$rep,$freqRep
     $anterioridad=$anterioridad;
     $descripcion=$descripcion;
     $recordatorio=new Recordatorio($titulo,$inicio,$fin,$freq,$anterioridad,$descripcion);
+    var_dump($recordatorio);
+    var_dump($idUser);
     return $recordatorio;
 }
-//show values
+
+
+if(isset($_POST['submitRecordatorio'])){
+    $titulo = $_POST['titulo'];
+    $inicio = $_POST['inicio'];
+    $fin = $_POST['fin'];
+    $freq = $_POST['freq'];
+    $anterioridad = $_POST['ant'];
+    $rep = $_POST['rep'];
+    $freqRep = $_POST['freqRep'];
+    $descripcion = $_POST['descripcion'];
+
+    creaRecordatorio($titulo,$inicio,$fin,$freq,$anterioridad,$rep,$freqRep,$descripcion,$_SESSION['userId']);
+}
+
+
 ?>

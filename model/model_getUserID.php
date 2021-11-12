@@ -5,7 +5,7 @@ function getUserID($connexio,$username){
         $consulta_id->execute();
         $resultSet = $consulta_id->get_result();
         $resultat_id=$resultSet->fetch_all();
-
+        $resultat_id=$resultat_id[0][0];
         return $resultat_id;
     }catch (PDOException $e){
         echo "ERROR: " . $e->getMessage();

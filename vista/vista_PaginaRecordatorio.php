@@ -5,7 +5,7 @@
 
     <h2 >Creación de un recordatorio:</h2>
     
-    <form class="formulario" method="get" target="_self" action="index.php?accio=crear-recordatorio">
+    <form class="formulario" method="post" target="_self" action="index.php?accio=crearRecordatorio">
     <p>Título del recordatorio: <input type="text" name="titulo" required></p>
     <p>De: <input  type="datetime-local" name="inicio" required value="2020-01-01T00:00" min="2020-01-01T00:00" max="2999-12-31T23:59"></p>
     <p>A: <input type="datetime-local" name="fin" required value="2020-01-01T00:05" min="2020-01-01T00:00" max="2999-12-31T23:59"></p>
@@ -46,7 +46,7 @@
         <textarea name="descripcion" rows="4" cols="50"></textarea>
     </p>
     <p>
-        <input type="submit" value="Crear recordatorio">
+        <input type="submit" name="submitRecordatorio" value="Crear recordatorio">
         <input type="reset" value="Borrar">
     </p>
     </form>
