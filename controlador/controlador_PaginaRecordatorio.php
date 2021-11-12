@@ -29,7 +29,7 @@ class Recordatorio{
 }
 
 //get values and construct a Recordatorio
-function creaRecordatorio($titulo,$inicio,$fin,$freq,$anterioridad,$rep,$freqRep,$descripcion,$idUser=null){
+function creaRecordatorio($titulo,$inicio,$fin,$freq,$anterioridad,$rep,$freqRep,$descripcion){
     $titulo=$titulo;
     //inicio
     $tmp=explode('T',$inicio);
@@ -43,6 +43,7 @@ function creaRecordatorio($titulo,$inicio,$fin,$freq,$anterioridad,$rep,$freqRep
     if($freq!='other'){
         $freq=$freq;
     }else{
+        if($rep=="") $rep=1;
         $freq=$rep.$freqRep;
     }
     $anterioridad=$anterioridad;
@@ -51,7 +52,8 @@ function creaRecordatorio($titulo,$inicio,$fin,$freq,$anterioridad,$rep,$freqRep
     return $recordatorio;
 }
 
-
+function insertRecordatorioBD($recordatorio,$user_id,$connexio){
+}
 if(isset($_POST['submitRecordatorio'])){
     $titulo = $_POST['titulo'];
     $inicio = $_POST['inicio'];
@@ -62,7 +64,8 @@ if(isset($_POST['submitRecordatorio'])){
     $freqRep = $_POST['freqRep'];
     $descripcion = $_POST['descripcion'];
 
-    creaRecordatorio($titulo,$inicio,$fin,$freq,$anterioridad,$rep,$freqRep,$descripcion,$_SESSION['userId']);
+    $recordatorio=creaRecordatorio($titulo,$inicio,$fin,$freq,$anterioridad,$rep,$freqRep,$descripcion);
+    insertRecordatorioBD($recordatorio,$_SESSION['userId'],$connexio);
 }
 
 

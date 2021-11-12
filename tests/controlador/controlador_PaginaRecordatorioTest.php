@@ -9,6 +9,7 @@ foreach(array_slice($folders, 0, -2) as $folder){
 }
 
 require_once $directorio.'/controlador/controlador_PaginaRecordatorio.php';      //deberiamos usar __DIR__.'../\controlador\controlador_PaginaInicio.php'; pero no me funciona lo de subir 2 directorios con ..
+require_once $directorio.'/model/model_connectDB.php';      //deberiamos usar __DIR__.'../model/model_connectDB.php'; pero no me funciona lo de subir 2 directorios con ..
 
 class RecordatorioTest extends PHPUnit\Framework\TestCase{
 
@@ -161,6 +162,7 @@ class RecordatorioTest extends PHPUnit\Framework\TestCase{
         $this->assertEquals('1s',$rec->anterioridad);
         $this->assertEquals("",$rec->descripcion);
     }
+    
     public function testCreaRecordatoriRep3(){
         $titulo="titulo";
         $inicio="2020-01-01T00:00";
@@ -179,6 +181,23 @@ class RecordatorioTest extends PHPUnit\Framework\TestCase{
         $this->assertEquals("",$rec->descripcion);
     }
     public function testCreaRecordatoriRep4(){
+        $titulo="titulo";
+        $inicio="2020-01-01T00:00";
+        $fin="2020-01-01T00:05";
+        $freq="other";
+        $anterioridad="1s";
+        $rep="";
+        $freqRep="D";
+        $descripcion="";
+        $rec=creaRecordatorio($titulo,$inicio,$fin,$freq,$anterioridad,$rep,$freqRep,$descripcion);
+        $this->assertEquals('titulo',$rec->titulo);
+        $this->assertEquals("2020-01-01 00:00",$rec->inicio);
+        $this->assertEquals("2020-01-01 00:05",$rec->fin);
+        $this->assertEquals("1D",$rec->repeticion);
+        $this->assertEquals('1s',$rec->anterioridad);
+        $this->assertEquals("",$rec->descripcion);
+    }
+    public function testCreaRecordatoriRep5(){
         $titulo="titulo";
         $inicio="2020-01-01T00:00";
         $fin="2020-01-01T00:05";
@@ -213,14 +232,41 @@ class RecordatorioTest extends PHPUnit\Framework\TestCase{
         $this->assertEquals('1s',$rec->anterioridad);
         $this->assertEquals("Hola esto es una descripcion",$rec->descripcion);
     }
-    public function TestnextRecordatorio1(){
-        $next_rec=$recordatorio1->nextRecordatorio("02-11-2021 11:11");
-        $this->assertEquals("05-11-2021 14:55",$next_rec);
+    public function testInsertRecordatorioBDTrue(){
+        $titulo="titulo";
+        $inicio="2020-01-01T00:00";
+        $fin="2020-01-01T00:05";
+        $freq="other";
+        $anterioridad="1s";
+        $rep="2";
+        $freqRep="A";
+        $descripcion="Hola esto es una descripcion";
+        $rec=creaRecordatorio($titulo,$inicio,$fin,$freq,$anterioridad,$rep,$freqRep,$descripcion);
+        $connexio=connectDB();
+        $this->assertTrue(insertRecordatorioBD($rec,1,$connexio));
     }
-    public function TestnextRecordatorio2(){
-        $next_rec=$recordatorio1->nextRecordatorio("02-11-2021 11:11");
-        $this->assertEquals("05-11-2021 14:55",$next_rec);
+    
+    public function testInsertRecordatorioBDFalse(){
+        $titulo="titulo";
+        $inicio="2020-01-01T00:00";
+        $fin="2020-01-01T00:05";
+        $freq="other";
+        $anterioridad="1s";
+        $rep="2";
+        $freqRep="A";
+        $descripcion="Hola esto es una descripcion";
+        $rec=creaRecordatorio($titulo,$inicio,$fin,$freq,$anterioridad,$rep,$freqRep,$descripcion);
+        $connexio=connectDB();
+        $this->assertFalse(insertRecordatorioBD($rec,'a',$connexio));
     }
+    // public function TestnextRecordatorio1(){
+    //     $next_rec=$recordatorio1->nextRecordatorio("02-11-2021 11:11");
+    //     $this->assertEquals("05-11-2021 14:55",$next_rec);
+    // }
+    // public function TestnextRecordatorio2(){
+    //     $next_rec=$recordatorio1->nextRecordatorio("02-11-2021 11:11");
+    //     $this->assertEquals("05-11-2021 14:55",$next_rec);
+    // }
 }
 
 
