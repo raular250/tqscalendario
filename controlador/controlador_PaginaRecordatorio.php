@@ -38,14 +38,14 @@ function creaRecordatorio($titulo,$inicio,$fin,$freq,$anterioridad,$rep,$freqRep
     $tmp=explode('%3A',$tmp[1]);
     $hora=$tmp[0];
     $min=$tmp[1];
-    $inicio=$inicio.' '.$hora.'-'.$min;
+    $inicio=$inicio.' '.$hora.':'.$min;
     //fin
     $tmp=explode('T',$fin);
     $fin=$tmp[0];
     $tmp=explode('%3A',$tmp[1]);
     $hora=$tmp[0];
     $min=$tmp[1];
-    $fin=$fin.' '.$hora.'-'.$min;
+    $fin=$fin.' '.$hora.':'.$min;
     //freq
     if($freq!='other'){
         $freq=$freq;
