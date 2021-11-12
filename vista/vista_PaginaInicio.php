@@ -8,7 +8,7 @@
     <div>Pol García Margalef - 1493313</div>
     <div>Raul Aquilue Rubio - 1500773</div>
     <br>
-    <h3>MANUAL DE LA WEB/h3>
+    <h3>MANUAL DE LA WEB </h3>
 
     <div> Como podemos observar tenemos un header, el cual nos permite navegar dentro de la web. Este header cambiará según si estás logeado o no.</div>
     <div> Sin tener la sesión iniciada tenemos como header los apartados Inicio y Login. </div>
