@@ -31,7 +31,7 @@ class Usuario {
     }
 }
 
-//Comprueba si un usuario existe en la base de datos
+//Comprueba si el nombre de usuario existe en la base de datos
 function CheckUsername($username){   
     $connexio=connectDB();
     $users=getUsers($connexio);
@@ -49,7 +49,7 @@ function CheckUsername($username){
 }
 
 
-
+//Comprueba si el nombre de usuario existe en el Mock Object
 function CheckUsernameMock($username){
     $users=getUserBDMock();
     global $mensaje;
@@ -64,7 +64,7 @@ function CheckUsernameMock($username){
 }
 
 
-//Comprueba si el usuario y password introducido existe
+//Comprueba si el usuario y password introducido existe en la BBDD
 function CheckUsernamePassword($username,$password){ 
     global $mensaje;
     $passwordsBDMock=getPasswordALFABDMock();

@@ -4,9 +4,11 @@
 
 <?php
 
-
-// unset($_SESSION['loged']); 
 $accio = $_GET['accio'] ?? null;
+
+if(!isset($_SESSION['loged'])){
+    $_SESSION['loged']=FALSE;
+}
 
 switch($accio) {
     
