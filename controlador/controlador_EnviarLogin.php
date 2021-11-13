@@ -147,22 +147,30 @@ function CheckSizeUserPass($username,$password){
     else{ //no, username con tamaño incorrectos
         echo("Tamaños de Login incorrecto");
         if(strlen($username)<4){
-            array_push($mensaje,"<div class='mensajesIncorrectosLogin'> Username introducido con menos de 4 carácteres. </div>");
+            if(strlen($password)<6){ //username y password con pocos carácteres
+                array_push($mensaje,"<div class='mensajesIncorrectosLogin'> Username introducido con menos de 4 carácteres. </div>");
+                array_push($mensaje,"<div class='mensajesIncorrectosLogin'> Password introducido con menos de 6 carácteres. </div>");
+            }
+            else{//username con pocos carácteres y password con muchos
+                array_push($mensaje,"<div class='mensajesIncorrectosLogin'> Username introducido con menos de 4 carácteres. </div>");
+                array_push($mensaje,"<div class='mensajesIncorrectosLogin'> Password introducido con más de 20 carácteres. </div>");
+            }
             array_push($mensaje,"<div class='mensajeInfoLogin'> <--USERNAME--> Tamaño mínimo 4. Tamaño máximo 20. </div>");
+            array_push($mensaje,"<div class='mensajeInfoLogin'> PASSWORD--> Tamaño mínimo 6. Tamaño máximo 20. </div>");
         } 
         else{
+            if(strlen($password)<6){ //username con muchos carácteres y password con pocos
+                array_push($mensaje,"<div class='mensajesIncorrectosLogin'> Username introducido con más de 20 carácteres. </div>");
+                array_push($mensaje,"<div class='mensajesIncorrectosLogin'> Password introducido con menos de 6 carácteres. </div>");
+            }               
+            else{ //username y password con muchos carácteres
+                array_push($mensaje,"<div class='mensajesIncorrectosLogin'> Username introducido con más de 20 carácteres. </div>");
+                array_push($mensaje,"<div class='mensajesIncorrectosLogin'> Password introducido con más de 20 carácteres. </div>");
+            }
             array_push($mensaje,"<div class='mensajesIncorrectosLogin'> Username introducido con más de 20 carácteres. </div>");
             array_push($mensaje,"<div class='mensajeInfoLogin'> <--USERNAME--> Tamaño mínimo 4. Tamaño máximo 20. </div>");
         }
-        //comprobamos también los tamaños del password
-        if(strlen($password)<6){
-            array_push($mensaje,"<div class='mensajesIncorrectosLogin'> Password introducido con menos de 6 carácteres. </div>");
-            array_push($mensaje,"<div class='mensajeInfoLogin'> PASSWORD--> Tamaño mínimo 6. Tamaño máximo 20. </div>");
-        }
-        else{
-            array_push($mensaje,"<div class='mensajesIncorrectosLogin'> Password introducido con más de 20 carácteres. </div>");
-            array_push($mensaje,"<div class='mensajeInfoLogin'> PASSWORD--> Tamaño mínimo 6. Tamaño máximo 20. </div>");
-        }
+        
 
         return False; //login con tamaños incorrectos
     }
