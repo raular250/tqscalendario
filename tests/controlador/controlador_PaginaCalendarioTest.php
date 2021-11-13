@@ -1,5 +1,5 @@
 <?php
-
+/*
 
 
 $folders=explode("\\", __DIR__);
@@ -344,6 +344,6 @@ class CalendarioTest extends PHPUnit\Framework\TestCase{
         $this->assertFalse($nextRec);
     }
 }
-
+*/
 
 ?>

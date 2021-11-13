@@ -45,6 +45,17 @@ class UsuarioTest extends PHPUnit\Framework\TestCase{
         $this->assertEquals('123',$usuario->getPassword());
     }
 
+    //Comprueba si el username existe en el Mock Object
+    public function testCheckUserMockObject(){
+        $result=CheckUsernameMock('Frutesino5'); //nombre usuario existe en el Mock Object
+        // var_dump($result);
+        $this->assertTrue($result);
+    }
+    public function testCheckUserMockObjectF(){
+        $result=CheckUsernameMock('noExistUser'); //nombre usuario no existe en el Mock Object
+        // var_dump($result);
+        $this->assertFalse($result);
+    }
 
     //Comprueba si el username existe en la bbdd
     public function testCheckUser(){
@@ -57,6 +68,8 @@ class UsuarioTest extends PHPUnit\Framework\TestCase{
         // var_dump($result);
         $this->assertFalse($result);
     }
+
+    
 
 
     //Comprueba si el username y password existe en la bbdd
