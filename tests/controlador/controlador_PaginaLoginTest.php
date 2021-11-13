@@ -51,7 +51,7 @@ class UsuarioTest extends PHPUnit\Framework\TestCase{
         // var_dump($result);
         $this->assertTrue($result);
     }
-    public function testCheckUserMockObjectF(){
+    public function testCheckUserMockObject1(){
         $result=CheckUsernameMock('noExistUser'); //nombre usuario no existe en el Mock Object
         // var_dump($result);
         $this->assertFalse($result);
@@ -63,7 +63,7 @@ class UsuarioTest extends PHPUnit\Framework\TestCase{
         // var_dump($result);
         $this->assertTrue($result);
     }
-    public function testCheckUserF(){
+    public function testCheckUser1(){
         $result=CheckUsername('noExistUser'); //nombre usuario no existe en la bbdd
         // var_dump($result);
         $this->assertFalse($result);
@@ -73,7 +73,7 @@ class UsuarioTest extends PHPUnit\Framework\TestCase{
 
 
     //Comprueba si el username y password existe en la bbdd
-    // (en este caso particular hay creado un MockObject llamado "getPasswordALFABDMock" el cual tiene una contraseña maestra)
+    // (en este caso particular hay creado un MockObject llamado "getPasswordMaestraMockObject" el cual tiene una contraseña maestra)
     public function testCheckUserPassword(){
         $login=CheckUsernamePassword('alejoHugo','llaveMaestra'); //usuario existe y password con llave maestra, login correcto
         var_dump("testCheckUserPassword",$login);
@@ -143,6 +143,36 @@ class UsuarioTest extends PHPUnit\Framework\TestCase{
         $login=CheckUserEmpty('prueba2','123456'); //los dos campos llenos
         var_dump("testCheckUserEmpty4",$login);
         $this->assertTrue($login);
+    }
+    public function testCheckUserEmpty5(){
+        echo("EMPTY Login4");
+        $login=CheckUserEmpty('A','123456'); //los dos campos llenos + valor frontera, sólo 1 valor en username
+        var_dump("testCheckUserEmpty5",$login);
+        $this->assertTrue($login);
+    }
+    public function testCheckUserEmpty6(){
+        echo("EMPTY Login4");
+        $login=CheckUserEmpty('prueba2','1'); //los dos campos llenos + valor frontera, sólo 1 valor en password
+        var_dump("testCheckUserEmpty6",$login);
+        $this->assertTrue($login);
+    }
+    public function testCheckUserEmpty7(){
+        echo("EMPTY Login4");
+        $login=CheckUserEmpty('A','1'); //los dos campos llenos + valor frontera, sólo 1 valor en username y password
+        var_dump("testCheckUserEmpty7",$login);
+        $this->assertTrue($login);
+    }
+    public function testCheckUserEmpty8(){
+        echo("EMPTY Login4");
+        $login=CheckUserEmpty('A',''); //valores frontera, sólo 1 valor en username y password
+        var_dump("testCheckUserEmpty8",$login);
+        $this->assertFalse($login);
+    }
+    public function testCheckUserEmpty9(){
+        echo("EMPTY Login4");
+        $login=CheckUserEmpty('','1'); //valores frontera, sólo 1 valor en username y password
+        var_dump("testCheckUserEmpty9",$login);
+        $this->assertFalse($login);
     }
     
     //Test para los tamaños del campo $username y password

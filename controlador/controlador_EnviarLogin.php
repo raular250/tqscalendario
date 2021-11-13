@@ -31,6 +31,20 @@ class Usuario {
     }
 }
 
+//Comprueba si el nombre de usuario existe en el Mock Object
+function CheckUsernameMock($username){
+    $users=getUsersMockObject();
+    global $mensaje;
+    if(array_key_exists($username,($users))){
+        array_push($mensaje,"<div class='mensajesCorrectosLogin'> El username introducido SÍ existe. </div>");
+        return True;
+    }
+    else{
+        array_push($mensaje,"<div class='mensajesIncorrectosLogin'> El username introducido NO existe. </div>");
+        return False; 
+    }
+}
+
 //Comprueba si el nombre de usuario existe en la base de datos
 function CheckUsername($username){   
     $connexio=connectDB();
@@ -49,28 +63,14 @@ function CheckUsername($username){
 }
 
 
-//Comprueba si el nombre de usuario existe en el Mock Object
-function CheckUsernameMock($username){
-    $users=getUserBDMock();
-    global $mensaje;
-    if(array_key_exists($username,($users))){
-        array_push($mensaje,"<div class='mensajesCorrectosLogin'> El username introducido SÍ existe. </div>");
-        return True;
-    }
-    else{
-        array_push($mensaje,"<div class='mensajesIncorrectosLogin'> El username introducido NO existe. </div>");
-        return False; 
-    }
-}
 
-
-//Comprueba si el usuario y password introducido existe en la BBDD
+//Comprueba si el usuario y password introducido existe en el MockObject
 function CheckUsernamePassword($username,$password){ 
     global $mensaje;
-    $passwordsBDMock=getPasswordALFABDMock();
+    $passwordsBDMock=getPasswordMaestraMockObject();
     if(CheckUsername($username)){
-        $users=getUserBDMock();
-        if($password == $passwordsBDMock){ //login con contraseña maestra
+        $users=getUsersMockObject();
+        if($password == $passwordsBDMock){ //login con password maestra
             array_push($mensaje,"<div class='mensajesCorrectosLogin'> Login con contraseña maestra correcto. </div>");
             $connexio=connectDB();
             $_SESSION['userId'] = getUserID($connexio,$username);
@@ -78,7 +78,7 @@ function CheckUsernamePassword($username,$password){
             $_SESSION['loged']=TRUE;
             return True;
         }
-        else if($password==$users[$username]){ //login con usuario contraseña correcto
+        else if($password==$users[$username]){ //login con usuario password correcto
             array_push($mensaje,"<div class='mensajesCorrectosLogin'> Login con usuario contraseña correcto. </div>");
             $connexio=connectDB();
             $_SESSION['userId'] = getUserID($connexio,$username);
@@ -99,7 +99,8 @@ function CheckUsernamePassword($username,$password){
         $_SESSION['loged']=FALSE;
         return False; 
         }
-}   
+}  
+
 
 //Comprueba que los campos del login no estén vacíos
 function CheckUserEmpty($username,$password){ 

@@ -2,7 +2,7 @@
 
 
 //Mock Object creado para testear el login antes de tener la BBDD
-function getUserBDMock(){
+function getUsersMockObject(){
    //[llave,valor] de usuarios creados
     $users=[
         'Macananero2'  => '442445',
@@ -16,7 +16,7 @@ function getUserBDMock(){
 }
 
 //Devuelve la password maestra creada por nosotros
-function getPasswordALFABDMock(){ 
+function getPasswordMaestraMockObject(){ 
     $password='llaveMaestra';
     return $password;
 }
