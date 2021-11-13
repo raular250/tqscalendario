@@ -83,7 +83,7 @@ function CheckUsernamePassword($username,$password){
             $connexio=connectDB();
             $_SESSION['userId'] = getUserID($connexio,$username);
             $_SESSION['username']=$username;
-            $_SESSION['loged']=TRUE;            
+            $_SESSION['loged']=TRUE;
             return True; 
         }
         else{ //username correcto, password incorrecto
