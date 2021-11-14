@@ -60,7 +60,7 @@ class CalendarioTest extends PHPUnit\Framework\TestCase{
         $ant="5m";
         $date="2021-11-12 22:26";
         $nextRec=nextRec($ini,$fin,$freq,$ant,$date);
-        $this->assertEquals("2021-11-1223:55",$nextRec);
+        $this->assertEquals("2021-11-12 23:55",$nextRec);
     }
     public function testNextRecIni3(){
         $ini="2021-01 00:00";
@@ -87,7 +87,7 @@ class CalendarioTest extends PHPUnit\Framework\TestCase{
         $ant="5m";
         $date="2021-11-12 22:26";
         $nextRec=nextRec($ini,$fin,$freq,$ant,$date);
-        $this->assertEquals("2021-11-12 23:55",$nextRec);
+        $this->assertEquals("2021-11-13 22:21",$nextRec);
     }
     public function testNextRecIni6(){
         $ini="2021-11-12 22:26";
@@ -114,7 +114,7 @@ class CalendarioTest extends PHPUnit\Framework\TestCase{
         $ant="5m";
         $date="2021-11-12 22:26";
         $nextRec=nextRec($ini,$fin,$freq,$ant,$date);
-        $this->assertEquals("2021-11-13 09:55",$nextRec);
+        $this->assertFalse($nextRec);
     }
     
     public function testNextRecIni9(){
@@ -313,6 +313,7 @@ class CalendarioTest extends PHPUnit\Framework\TestCase{
         $freq="1D";       //1D,2D,3D..,1M,2M,3M...,1A,2A,3A...,once,daily,L-V",annually
         $ant="5m";        //5m,1h,1d,1s
         $date="2020-01-01 09:55";
+        var_dump("HOLAAAAAAAAAAAA");
         $nextRec=nextRec($ini,$fin,$freq,$ant,$date);
         $this->assertEquals("2020-01-02 09:55",$nextRec);
     }
