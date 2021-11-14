@@ -27,16 +27,16 @@ function minusAnt($nextRec,$ant){
         $modificacion="";
         switch($ant){
             case '5m':
-                $modificacion='+ 5 minutes';
+                $modificacion='- 5 minutes';
                 break;
             case '1h':
-                $modificacion='+ 1 hours';
+                $modificacion='- 1 hours';
                 break;
             case '1d':
-                $modificacion='+ 1 days';
+                $modificacion='- 1 days';
                 break;
             case '1s':
-                $modificacion='+ 1 weeks';
+                $modificacion='- 1 weeks';
                 break;
         }
         $nextRec=date('Y-m-d H:i', strtotime($nextRec.$modificacion));
