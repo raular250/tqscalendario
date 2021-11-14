@@ -46,15 +46,17 @@ function minusAnt($nextRec,$ant){
 function nextRec($ini,$fin,$freq,$ant,$date){
     if(($ini<$fin) and ($date<$fin) ){
         if(is_numeric($freq[0])){    //1D,2D,3D..,1M,2M,3M...,1A,2A,3A...,
+            // var_dump($freq[strlen($freq)-1]);
+            // var_dump(substr($freq,0,-1));
             switch($freq[strlen($freq)-1]){
                 case 'D':
-                    if($ini>$date){
+                    if(minusAnt($ini,$ant)>$date){
                         $nextRec=$ini;
                     }else{
                         $nextRec=$ini;
                         do{
                             $nextRec=date('Y-m-d H:i', strtotime($nextRec. '+ '.substr($freq,0,-1).' days'));
-                        }while($date<$ini);
+                        }while(minusAnt($nextRec,$ant)<$date);
                     }
                     $nextRec=minusAnt($nextRec,$ant);
                     if($nextRec>$fin){
@@ -62,13 +64,13 @@ function nextRec($ini,$fin,$freq,$ant,$date){
                     }
                     break;
                 case 'M':
-                    if($ini>$date){
+                    if(minusAnt($ini,$ant)>$date){
                         $nextRec=$ini;
                     }else{
                         $nextRec=$ini;
                         do{
                             $nextRec=date('Y-m-d H:i', strtotime($nextRec. '+ '.substr($freq,0,-1).' months'));
-                        }while($date<$ini);
+                        }while(minusAnt($nextRec,$ant)<$date);
                     }
                     $nextRec=minusAnt($nextRec,$ant);
                     if($nextRec>$fin){
@@ -76,13 +78,13 @@ function nextRec($ini,$fin,$freq,$ant,$date){
                     }
                     break;
                 case 'A':
-                    if($ini>$date){
+                    if(minusAnt($ini,$ant)>$date){
                         $nextRec=$ini;
                     }else{
                         $nextRec=$ini;
                         do{
                             $nextRec=date('Y-m-d H:i', strtotime($nextRec. '+ '.substr($freq,0,-1).' years'));
-                        }while($date<$ini);
+                        }while(minusAnt($nextRec,$ant)<$date);
                     }
                     $nextRec=minusAnt($nextRec,$ant);
                     if($nextRec>$fin){
@@ -93,7 +95,7 @@ function nextRec($ini,$fin,$freq,$ant,$date){
         }else{
             switch($freq){  //once,daily,L-V",annually
                 case "once":
-                    if($ini>$date){
+                    if(minusAnt($ini,$ant)>$date){
                         $nextRec=$ini;
                         $nextRec=minusAnt($nextRec,$ant);
                     }else{
@@ -101,13 +103,13 @@ function nextRec($ini,$fin,$freq,$ant,$date){
                     }
                     break;
                 case "daily":
-                    if($ini>$date){
+                    if(minusAnt($ini,$ant)>$date){
                         $nextRec=$ini;
                     }else{
                         $nextRec=$ini;
                         do{
                             $nextRec=date('Y-m-d H:i', strtotime($nextRec. '+ 1 days'));
-                        }while($date<$ini);
+                        }while(minusAnt($nextRec,$ant)<$date);
                     }
                     $nextRec=minusAnt($nextRec,$ant);
                     if($nextRec>$fin){
@@ -115,14 +117,14 @@ function nextRec($ini,$fin,$freq,$ant,$date){
                     }
                     break;
                 case "L-V":
-                    if($ini>$date){
+                    if(minusAnt($ini,$ant)>$date){
                         $nextRec=$ini;
                     }else{
                         $nextRec=$ini;
                         do{
                             $nextRec=date('Y-m-d H:i', strtotime($nextRec. '+ 1 days'));
-                            $weekDay=date('w',$nextRec);
-                        }while($date<$ini and $weekDay>=1 and $weekDay<=5);
+                            $weekDay=date('w',strtotime($nextRec));
+                        }while((minusAnt($nextRec,$ant)<$date) or  $weekDay<1 or $weekDay>5);
                     }
                     $nextRec=minusAnt($nextRec,$ant);
                     if($nextRec>$fin){
@@ -130,14 +132,13 @@ function nextRec($ini,$fin,$freq,$ant,$date){
                     }
                     break;
                 case "annually":
-                    if($ini>$date){
+                    if(minusAnt($ini,$ant)>$date){
                         $nextRec=$ini;
                     }else{
                         $nextRec=$ini;
                         do{
                             $nextRec=date('Y-m-d H:i', strtotime($nextRec. '+ 1 year'));
-                            $weekDay=date('w',$nextRec);
-                        }while($date<$ini);
+                        }while(minusAnt($nextRec,$ant)<$date);
                     }
                     $nextRec=minusAnt($nextRec,$ant);
                     if($nextRec>$fin){
