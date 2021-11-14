@@ -2,21 +2,21 @@
 
     <h2>MIS RECORDATORIOS </h2>
     <table class="recordatorios">
-    <tr>
-        <th>titulo</th>
-        <th>fecha inicio</th>
-        <th>fecha final</th>
-        <th>frequencia</th>
-        <th>anterioridad</th>
-        <th>descripción</th>
+    <tr class="descriptionTr">
+        <th class="descriptionTh">titulo</th>
+        <th class="descriptionTh">fecha inicio</th>
+        <th class="descriptionTh">fecha final</th>
+        <th class="descriptionTh">frequencia</th>
+        <th class="descriptionTh">anterioridad</th>
+        <th class="descriptionTh">descripción</th>
     </tr>
     <?php
 
     foreach(array_keys($misRecordatorios) as $k){
-        echo "<tr>";
+        echo "<tr class='descriptionTr'>";
         foreach(array_keys($misRecordatorios[$k]) as $v){
             if($v >=1 and $v<=5)
-                echo '<td>'.$misRecordatorios[$k][$v]."</td> \n";
+                echo '<td class="descriptionTd">'.$misRecordatorios[$k][$v]."</td> \n";
             if($v==6)
                 echo "<td class='descriptionCol'>".$misRecordatorios[$k][$v]."</td> \n";
             
