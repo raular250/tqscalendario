@@ -21,6 +21,7 @@ function getRecordatoriosMock($user_id){
     return $recordatorios;
 }
 function minusAnt($nextRec,$ant){
+    //5m,1h,1d,1s
     //Restar a nextRec la anterioridad de $ant;
     if($nextRec!=false){
 

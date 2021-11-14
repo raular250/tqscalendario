@@ -343,6 +343,90 @@ class CalendarioTest extends PHPUnit\Framework\TestCase{
         $nextRec=nextRec($ini,$fin,$freq,$ant,$date);
         $this->assertFalse($nextRec);
     }
+    public function testMinusAnt1(){
+        $date="2021-01-01 09:55";
+        $and='5m';
+        $result=minusAnt($nextRec,$ant);
+        $this->assertEquals("2021-01-01 09:50",$result);
+    }
+    public function testMinusAnt2(){
+        $date="2021-01-01 09:55";
+        $and='1h';
+        $result=minusAnt($nextRec,$ant);
+        $this->assertEquals("2021-01-01 08:55",$result);
+    }
+    public function testMinusAnt3(){
+        $date="2021-01-02 09:55";
+        $and='1d';
+        $result=minusAnt($nextRec,$ant);
+        $this->assertEquals("2021-01-01 09:55",$result);
+    }
+    public function testMinusAnt4(){
+        $date="2021-01-08 09:55";
+        $and='1s';
+        $result=minusAnt($nextRec,$ant);
+        $this->assertEquals("2021-01-01 09:55",$result);
+    }
+    public function testMinusAnt5(){    //valores limite
+        $date="2021-01-08 00:00";
+        $and='5m';
+        $result=minusAnt($nextRec,$ant);
+        $this->assertEquals("2021-01-07 23:55",$result);
+    }
+    public function testMinusAnt6(){    //valores frontera
+        $date="2021-01-08 00:01";
+        $and='5m';
+        $result=minusAnt($nextRec,$ant);
+        $this->assertEquals("2021-01-08 23:56",$result);
+    }
+    public function testMinusAnt7(){    //valores frontera
+        $date="2021-01-08 00:05";
+        $and='5m';
+        $result=minusAnt($nextRec,$ant);
+        $this->assertEquals("2021-01-08 00:00",$result);
+    }
+    public function testMinusAnt8(){    //valores frontera
+        $date="2021-01-08 23:59";
+        $and='5m';
+        $result=minusAnt($nextRec,$ant);
+        $this->assertEquals("2021-01-08 23:55",$result);
+    }
+    public function testMinusAnt9(){    //valores limite
+        $date="2021-11-01 00:00";
+        $and='5m';
+        $result=minusAnt($nextRec,$ant);
+        $this->assertEquals("2021-10-31 23:55",$result);
+    }
+    public function testMinusAnt10(){    //valores frontera
+        $date="2021-11-01 00:01";
+        $and='5m';
+        $result=minusAnt($nextRec,$ant);
+        $this->assertEquals("2021-10-31 23:56",$result);
+    }
+    public function testMinusAnt11(){    //valores frontera
+        $date="2021-11-01 23:59";
+        $and='5m';
+        $result=minusAnt($nextRec,$ant);
+        $this->assertEquals("2021-11-01 23:54",$result);
+    }
+    public function testMinusAnt12(){    //valores limite
+        $date="2021-01-01 00:00";
+        $and='5m';
+        $result=minusAnt($nextRec,$ant);
+        $this->assertEquals("2020-12-31 23:55",$result);
+    }
+    public function testMinusAnt13(){    //valores frontera
+        $date="2021-01-01 00:01";
+        $and='5m';
+        $result=minusAnt($nextRec,$ant);
+        $this->assertEquals("2020-12-31 23:56",$result);
+    }
+    public function testMinusAnt14(){    //valores frontera
+        $date="2021-01-01 23:59";
+        $and='5m';
+        $result=minusAnt($nextRec,$ant);
+        $this->assertEquals("2021-01-01 23:54",$result);
+    }
 }
 
 
