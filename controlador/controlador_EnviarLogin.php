@@ -65,7 +65,7 @@ function CheckUsername($username){
 
 
 //Comprueba si el usuario y password introducido existe en el MockObject
-function CheckUsernamePassword($username,$password){ 
+function CheckUsernamePasswordMockObject($username,$password){ 
     global $mensaje;
     $passwordsBDMock=getPasswordMaestraMockObject();
     if(CheckUsername($username)){
@@ -79,6 +79,52 @@ function CheckUsernamePassword($username,$password){
             return True;
         }
         else if($password==$users[$username]){ //login con usuario password correcto
+            array_push($mensaje,"<div class='mensajesCorrectosLogin'> Login con usuario contraseña correcto. </div>");
+            $connexio=connectDB();
+            $_SESSION['userId'] = getUserID($connexio,$username);
+            $_SESSION['username']=$username;
+            $_SESSION['loged']=TRUE;
+            return True; 
+        }
+        else{ //username correcto, password incorrecto
+            array_push($mensaje,"<div class='mensajesIncorrectosLogin'> Username correcto, password incorrecto. </div>");
+            unset($_SESSION['username']);
+            $_SESSION['loged']=FALSE;
+            return False; 
+        }
+    }
+    else{ //username incorrecto
+        array_push($mensaje,"<div class='mensajesIncorrectosLogin'> Username incorrecto. </div>");
+        unset($_SESSION['username']);
+        $_SESSION['loged']=FALSE;
+        return False; 
+        }
+}  
+
+
+//Comprueba si el usuario y password introducido existe en la base de datos
+function CheckUsernamePassword($username,$password){ 
+    global $mensaje;
+
+    $passwordsBDMock=getPasswordMaestraMockObject();
+    if(CheckUsername($username)){
+        $connexio=connectDB();
+        $users=getUsers($connexio);
+        foreach($users as $usernameBD){ //busca la contraseña del username insertado
+            if($usernameBD[1]==$username){
+                $passwordUsuario=$usernameBD[2];
+            }
+        }
+
+        if($password == $passwordsBDMock){ //login con password maestra
+            array_push($mensaje,"<div class='mensajesCorrectosLogin'> Login con contraseña maestra correcto. </div>");
+            $connexio=connectDB();
+            $_SESSION['userId'] = getUserID($connexio,$username);
+            $_SESSION['username']=$username;
+            $_SESSION['loged']=TRUE;
+            return True;
+        }
+        else if($password==$passwordUsuario){ //login con usuario password correcto
             array_push($mensaje,"<div class='mensajesCorrectosLogin'> Login con usuario contraseña correcto. </div>");
             $connexio=connectDB();
             $_SESSION['userId'] = getUserID($connexio,$username);

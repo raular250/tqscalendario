@@ -57,7 +57,7 @@ class UsuarioTest extends PHPUnit\Framework\TestCase{
         $this->assertFalse($result);
     }
 
-    //Comprueba si el username existe en la bbdd
+    //Comprueba si el username existe en la base de datos
     public function testCheckUser(){
         $result=CheckUsername('Frutesino5'); //nombre usuario existe en la bbdd
         // var_dump($result);
@@ -69,11 +69,37 @@ class UsuarioTest extends PHPUnit\Framework\TestCase{
         $this->assertFalse($result);
     }
 
-    
+    //Comprueba si el username y password existe en el MockObject
+    public function testCheckUserPasswordMockObject(){
+        $login=CheckUsernamePasswordMockObject('alejoHugo','llaveMaestra'); //usuario existe y password con llave maestra, login correcto
+        var_dump("testCheckUserPasswordMockObject",$login);
+        $this->assertTrue($login);
+    }
+    public function testCheckUserPasswordMockObject1(){
+        $login=CheckUsernamePasswordMockObject('noexiste','llaveMaestra'); //usuario no existe y password con llave maestra, login incorrecto
+        var_dump("testCheckUserPasswordMockObject1",$login);
+        $this->assertFalse($login);
+    }
+    //Comprueba si el username y password existe en la bbdd
+    public function testCheckUserPasswordMockObject2(){
+        $login=CheckUsernamePasswordMockObject('legendary','tekashi'); //login correcto, usuario y password existen
+        var_dump("testCheckUserPasswordMockObject2",$login);
+        $this->assertTrue($login);
+    }
+    public function testCheckUserPasswordMockObject3(){
+        $login=CheckUsernamePasswordMockObject('prueba22','noCorrecto'); //username no existe y password tampoco
+        var_dump("testCheckUserPasswordMockObject3",$login);
+        $this->assertFalse($login);
+    }
+    public function testCheckUserPasswordMockObject4(){ //
+        $login=CheckUsernamePasswordMockObject('Maria','PRUEBA22'); //username existe pero password no
+        var_dump("testCheckUserPasswordMockObject4",$login);;
+        $this->assertFalse($login);
+    }
+
 
 
     //Comprueba si el username y password existe en la bbdd
-    // (en este caso particular hay creado un MockObject llamado "getPasswordMaestraMockObject" el cual tiene una contraseña maestra)
     public function testCheckUserPassword(){
         $login=CheckUsernamePassword('alejoHugo','llaveMaestra'); //usuario existe y password con llave maestra, login correcto
         var_dump("testCheckUserPassword",$login);
@@ -101,7 +127,7 @@ class UsuarioTest extends PHPUnit\Framework\TestCase{
         $this->assertFalse($login);
     }
 
-    //Testea si la session se actualiza coreectamente con el login correcto o incorrecto del usuario
+    //Testea si la session se actualiza correctamente con el login correcto o incorrecto del usuario
     public function testCheckUserPasswordSession1(){
         $login=CheckUsernamePassword('killshot122','scarce'); //login correcto
         var_dump("testCheckUserPasswordSession1",$login);;
