@@ -427,6 +427,13 @@ class CalendarioTest extends PHPUnit\Framework\TestCase{
         $result=minusAnt($nextRec,$ant);
         $this->assertEquals("2021-01-01 23:54",$result);
     }
+    
+    public function testMinusAnt15(){    //valores frontera
+        $date=false;
+        $and='5m';
+        $result=minusAnt($nextRec,$ant);
+        $this->assertFalse($result);
+    }
 }
 
 

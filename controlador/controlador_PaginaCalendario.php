@@ -24,7 +24,22 @@ function minusAnt($nextRec,$ant){
     //5m,1h,1d,1s
     //Restar a nextRec la anterioridad de $ant;
     if($nextRec!=false){
-
+        $modificacion="";
+        switch($ant){
+            case '5m':
+                $modificacion='+ 5 minutes';
+                break;
+            case '1h':
+                $modificacion='+ 1 hours';
+                break;
+            case '1d':
+                $modificacion='+ 1 days';
+                break;
+            case '1s':
+                $modificacion='+ 1 weeks';
+                break;
+        }
+        $nextRec=date('Y-m-d H:i', strtotime($nextRec.$modificacion));
     }
     return $nextRec;
 }
