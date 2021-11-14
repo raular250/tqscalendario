@@ -313,7 +313,6 @@ class CalendarioTest extends PHPUnit\Framework\TestCase{
         $freq="1D";       //1D,2D,3D..,1M,2M,3M...,1A,2A,3A...,once,daily,L-V",annually
         $ant="5m";        //5m,1h,1d,1s
         $date="2020-01-01 09:55";
-        var_dump("HOLAAAAAAAAAAAA");
         $nextRec=nextRec($ini,$fin,$freq,$ant,$date);
         $this->assertEquals("2020-01-02 09:55",$nextRec);
     }
