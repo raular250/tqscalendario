@@ -377,7 +377,7 @@ class CalendarioTest extends PHPUnit\Framework\TestCase{
         $date="2021-01-08 00:01";
         $ant='5m';
         $result=minusAnt($date,$ant);
-        $this->assertEquals("2021-01-08 23:56",$result);
+        $this->assertEquals("2021-01-07 23:56",$result);
     }
     public function testMinusAnt7(){    //valores frontera
         $date="2021-01-08 00:05";
@@ -389,7 +389,7 @@ class CalendarioTest extends PHPUnit\Framework\TestCase{
         $date="2021-01-08 23:59";
         $ant='5m';
         $result=minusAnt($date,$ant);
-        $this->assertEquals("2021-01-08 23:55",$result);
+        $this->assertEquals("2021-01-08 23:54",$result);
     }
     public function testMinusAnt9(){    //valores limite
         $date="2021-11-01 00:00";
@@ -399,7 +399,7 @@ class CalendarioTest extends PHPUnit\Framework\TestCase{
     }
     public function testMinusAnt10(){    //valores frontera
         $date="2021-11-01 00:01";
-        $aantnd='5m';
+        $ant='5m';
         $result=minusAnt($date,$ant);
         $this->assertEquals("2021-10-31 23:56",$result);
     }
