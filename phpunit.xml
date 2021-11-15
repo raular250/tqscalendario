@@ -2,7 +2,7 @@
 <phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.5/phpunit.xsd"
          bootstrap="vendor/autoload.php"
-         cacheResultFile="testcache/test-results"
+         cacheResultFile="./testcache/test-results"
          executionOrder="depends,defects"
          forceCoversAnnotation="true"
          beStrictAboutCoversAnnotation="true"
@@ -17,11 +17,10 @@
             <directory>tests</directory>
         </testsuite>
     </testsuites>
-
-    <coverage cacheDirectory="testcache/code-coverage"
+    <coverage cacheDirectory="./testcache/code-coverage"
               processUncoveredFiles="true">
         <include>
-            <directory suffix=".php">src</directory>
+            <directory suffix=".php">./controlador/</directory>
         </include>
     </coverage>
 </phpunit>

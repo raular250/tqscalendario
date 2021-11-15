@@ -15,7 +15,9 @@ require_once $directorio.'/model/model_connectDB.php';      //deberiamos usar __
  * @covers Calendario::
 */
 class CalendarioTest extends PHPUnit\Framework\TestCase{
-
+    /**
+     * @covers getRecordatoriosMock
+    */
     public function testGetRecordatoriosMock0(){
         $rec=getRecordatoriosMock(0);
         $this->assertEquals($rec,array());

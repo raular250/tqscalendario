@@ -105,6 +105,7 @@ function CheckUsernamePasswordMockObject($username,$password){
 
 //Comprueba si el usuario y password introducido existe en la base de datos
 function CheckUsernamePassword($username,$password){ 
+    if(!isset($_SESSION))$_SESSION=array();
     global $mensaje;
 
     $passwordsBDMock=getPasswordMaestraMockObject();
