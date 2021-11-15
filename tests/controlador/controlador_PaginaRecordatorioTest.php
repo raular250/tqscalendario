@@ -474,28 +474,28 @@ class RecordatorioTest extends PHPUnit\Framework\TestCase{
 
     // Test rep
     public function testComprobarRep(){ 
-        $recordatorio=ComprobarCampos('titulo',"2020-01-01T00:00","2020-01-01T00:00","other","1s",0,"D",'descripcion');
-        $this->assertTrue($recordatorio);
+        $recordatorio=ComprobarCampos('titulo',"2020-01-01T00:00","2020-01-01T00:00","other","1s","0","D",'descripcion');
+        $this->assertFalse($recordatorio);
     }
     public function testComprobarRep1(){ 
-        $recordatorio=ComprobarCampos('titulo',"2020-01-01T00:00","2020-01-01T00:00","other","1s",1,"D",'descripcion');
+        $recordatorio=ComprobarCampos('titulo',"2020-01-01T00:00","2020-01-01T00:00","other","1s","1","D",'descripcion');
         $this->assertTrue($recordatorio);
     }
     public function testComprobarRep2(){ 
-        $recordatorio=ComprobarCampos('titulo',"2020-01-01T00:00","2020-01-01T00:00","other","1s",2,"D",'descripcion');
+        $recordatorio=ComprobarCampos('titulo',"2020-01-01T00:00","2020-01-01T00:00","other","1s","2","D",'descripcion');
         $this->assertTrue($recordatorio);
     }
     public function testComprobarRe3p(){ 
-        $recordatorio=ComprobarCampos('titulo',"2020-01-01T00:00","2020-01-01T00:00","other","1s",364,"D",'descripcion');
+        $recordatorio=ComprobarCampos('titulo',"2020-01-01T00:00","2020-01-01T00:00","other","1s","364","D",'descripcion');
         $this->assertTrue($recordatorio);
     }
     public function testComprobarRep4(){ 
-        $recordatorio=ComprobarCampos('titulo',"2020-01-01T00:00","2020-01-01T00:00","other","1s",365,"D",'descripcion');
+        $recordatorio=ComprobarCampos('titulo',"2020-01-01T00:00","2020-01-01T00:00","other","1s","365","D",'descripcion');
         $this->assertTrue($recordatorio);
     }
     public function testComprobarRep5(){ 
-        $recordatorio=ComprobarCampos('titulo',"2020-01-01T00:00","2020-01-01T00:00","other","1s",366,"D",'descripcion');
-        $this->assertTrue($recordatorio);
+        $recordatorio=ComprobarCampos('titulo',"2020-01-01T00:00","2020-01-01T00:00","other","1s","366","D",'descripcion');
+        $this->assertFalse($recordatorio);
     }
     public function testComprobarRep6(){ 
         $recordatorio=ComprobarCampos('titulo',"2020-01-01T00:00","2020-01-01T00:00","other","1s","","D",'descripcion');
@@ -507,11 +507,11 @@ class RecordatorioTest extends PHPUnit\Framework\TestCase{
     }
     public function testComprobarRep8(){ 
         $recordatorio=ComprobarCampos('titulo',"2020-01-01T00:00","2020-01-01T00:00","other","1s","true","D",'descripcion');
-        $this->assertTrue($recordatorio);
+        $this->assertFalse($recordatorio);
     }
     public function testComprobarRep9(){ 
-        $recordatorio=ComprobarCampos('titulo',"2020-01-01T00:00","2020-01-01T00:00","other","1s","3666","D",'descripcion');
-        $this->assertTrue($recordatorio);
+        $recordatorio=ComprobarCampos('titulo',"2020-01-01T00:00","2020-01-01T00:00","other","1s","ABS","D",'descripcion');
+        $this->assertFalse($recordatorio);
     }
 
     // Test freqRep
