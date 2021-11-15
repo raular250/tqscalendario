@@ -151,55 +151,55 @@ class UsuarioTest extends PHPUnit\Framework\TestCase{
 
     //Testea si los campos introducidos en el login se envian vacíos o no
     public function testCheckUserEmpty(){
-        echo("EMPTY Login");
+      //  echo("EMPTY Login");
         $login=CheckUserEmpty('',''); //dos campos vacíos
       // var_dump("testCheckUserEmpty",$login);
         $this->assertFalse($login);
     }
     public function testCheckUserEmpty2(){
-        echo("EMPTY Login2");
+      //  echo("EMPTY Login2");
         $login=CheckUserEmpty('','123456'); //campo username vacío
       // var_dump("testCheckUserEmpty2",$login);
         $this->assertFalse($login);
     }
     public function testCheckUserEmpty3(){ //campos password vacío
-        echo("EMPTY Login3");
+      //  echo("EMPTY Login3");
         $login=CheckUserEmpty('prueba2','');
       // var_dump("testCheckUserEmpty3",$login);
         $this->assertFalse($login);
     }
     public function testCheckUserEmpty4(){
-        echo("EMPTY Login4");
+      //  echo("EMPTY Login4");
         $login=CheckUserEmpty('prueba2','123456'); //los dos campos llenos
       // var_dump("testCheckUserEmpty4",$login);
         $this->assertTrue($login);
     }
     public function testCheckUserEmpty5(){
-        echo("EMPTY Login4");
+      //  echo("EMPTY Login4");
         $login=CheckUserEmpty('A','123456'); //los dos campos llenos + valor frontera, sólo 1 valor en username
       // var_dump("testCheckUserEmpty5",$login);
         $this->assertTrue($login);
     }
     public function testCheckUserEmpty6(){
-        echo("EMPTY Login4");
+      //  echo("EMPTY Login4");
         $login=CheckUserEmpty('prueba2','1'); //los dos campos llenos + valor frontera, sólo 1 valor en password
       // var_dump("testCheckUserEmpty6",$login);
         $this->assertTrue($login);
     }
     public function testCheckUserEmpty7(){
-        echo("EMPTY Login4");
+      //  echo("EMPTY Login4");
         $login=CheckUserEmpty('A','1'); //los dos campos llenos + valor frontera, sólo 1 valor en username y password
       // var_dump("testCheckUserEmpty7",$login);
         $this->assertTrue($login);
     }
     public function testCheckUserEmpty8(){
-        echo("EMPTY Login4");
+      //  echo("EMPTY Login4");
         $login=CheckUserEmpty('A',''); //valores frontera, sólo 1 valor en username y password
       // var_dump("testCheckUserEmpty8",$login);
         $this->assertFalse($login);
     }
     public function testCheckUserEmpty9(){
-        echo("EMPTY Login4");
+      //  echo("EMPTY Login4");
         $login=CheckUserEmpty('','1'); //valores frontera, sólo 1 valor en username y password
       // var_dump("testCheckUserEmpty9",$login);
         $this->assertFalse($login);
@@ -209,121 +209,121 @@ class UsuarioTest extends PHPUnit\Framework\TestCase{
     //Tests valores frontera y decision coverage
     //los comentarios con dos números son: el primer número indica el tamaño del username y el segundo el tamaño del password
     public function testCheckSizeUserPass(){
-        echo("SIZE Login");
+      //  echo("SIZE Login");
         $size=CheckSizeUserPass('pru','123456'); //3 y 6 (menos de 3 y 6)
       // var_dump("testCheckSizeUserPass",$size);
         $this->assertFalse($size);
     }
     public function testCheckSizeUserPass1(){
-        echo("SIZE Login");
+      //  echo("SIZE Login");
         $size=CheckSizeUserPass('pru','123456'); //3 y 6 (menos de 3 y 6)
       // var_dump("testCheckSizeUserPass1",$size);
         $this->assertFalse($size);
     }
     public function testCheckSizeUserPass2(){
-        echo("SIZE Login");
+      //  echo("SIZE Login");
         $size=CheckSizeUserPass('pru','123'); //3 y 3 (menos de 4 y menos de 6)       
       // var_dump("testCheckSizeUserPass2",$size);
         $this->assertFalse($size);
     }
     public function testCheckSizeUserPass3(){
-        echo("SIZE Login");
+      //  echo("SIZE Login");
         $size=CheckSizeUserPass('prue','123456'); //4 y 6       
       // var_dump("testCheckSizeUserPass3",$size);
         $this->assertTrue($size);
     }
     public function testCheckSizeUserPass4(){
-        echo("SIZE Login");
+      //  echo("SIZE Login");
         $size=CheckSizeUserPass('prueb','123456'); //5 y 6       
       // var_dump("testCheckSizeUserPass4",$size);
         $this->assertTrue($size);
     }
     public function testCheckSizeUserPass5(){
-        echo("SIZE Login");
+      //  echo("SIZE Login");
         $size=CheckSizeUserPass('prueba','123456'); //6 y 6       
       // var_dump("testCheckSizeUserPass5",$size);
         $this->assertTrue($size);
     }
     public function testCheckSizeUserPass6(){
-        echo("SIZE Login");
+      //  echo("SIZE Login");
         $size=CheckSizeUserPass('prueba2','12345'); //6 y 5       
       // var_dump("testCheckSizeUserPass6",$size);
         $this->assertFalse($size);
     }
     public function testCheckSizeUserPass7(){
-        echo("SIZE Login");
+      //  echo("SIZE Login");
         $size=CheckSizeUserPass('prueba2','1234567'); //6 y 7       
       // var_dump("testCheckSizeUserPass7",$size);
         $this->assertTrue($size);
     }
     public function testCheckSizeUserPass8(){
-        echo("SIZE Login");
+      //  echo("SIZE Login");
         $size=CheckSizeUserPass('prueba2','1234567891234567890'); //6 y 19
       // var_dump("testCheckSizeUserPass8",$size);
         $this->assertTrue($size);
     }
     public function testCheckSizeUserPass9(){
-        echo("SIZE Login");
+      //  echo("SIZE Login");
         $size=CheckSizeUserPass('prueba2','12345678912345678900'); //6 y 20
       // var_dump("testCheckSizeUserPass9",$size);
         $this->assertTrue($size);
     }
     public function testCheckSizeUserPass10(){
-        echo("SIZE Login");
+      //  echo("SIZE Login");
         $size=CheckSizeUserPass('prueba2','123456789123456789000'); //6 y 21
       // var_dump("testCheckSizeUserPass10",$size);
         $this->assertFalse($size);
     }
     public function testCheckSizeUserPass11(){
-        echo("SIZE Login");
+      //  echo("SIZE Login");
         $size=CheckSizeUserPass('pr','3322333322222232323233332323'); //2 y 28
       // var_dump("testCheckSizeUserPass11",$size);
         $this->assertFalse($size);
     }
     public function testCheckSizeUserPass12(){
-        echo("SIZE Login");
+      //  echo("SIZE Login");
         $size=CheckSizeUserPass('3322333322222232323233332323','pr'); //28 y 2
       // var_dump("testCheckSizeUserPass12",$size);
         $this->assertFalse($size);
     }
     public function testCheckSizeUserPass13(){
-        echo("SIZE Login");
+      //  echo("SIZE Login");
         $size=CheckSizeUserPass('pruebapruebapruebas21','1234565646545656456456'); //21 y 22       
       // var_dump("testCheckSizeUserPass13",$size);
         $this->assertFalse($size);
     }
     public function testCheckSizeUserPass14(){
-        echo("SIZE Login");
+      //  echo("SIZE Login");
         $size=CheckSizeUserPass('pruebapruebaprueba20','12312312312312312355'); //20 y 20       
       // var_dump("testCheckSizeUserPass14",$size);
         $this->assertTrue($size);
     }
     public function testCheckSizeUserPass15(){
-        echo("SIZE Login");
+      //  echo("SIZE Login");
         $size=CheckSizeUserPass('pruebapruebaprueba20','12312312d312312312355'); //20 y 21
       // var_dump("testCheckSizeUserPass15",$size);
         $this->assertFalse($size);
     }
     public function testCheckSizeUserPass16(){
-        echo("SIZE Login");
+      //  echo("SIZE Login");
         $size=CheckSizeUserPass('pruebapruebaprueb19','123456'); //19 y 6       
       // var_dump("testCheckSizeUserPass16",$size);
         $this->assertTrue($size);
     }
     public function testCheckSizeUserPass17(){
-        echo("SIZE Login");
+      //  echo("SIZE Login");
         $size=CheckSizeUserPass('pruebapruebaprueba20','123456'); //20 y 6       
       // var_dump("testCheckSizeUserPass17",$size);
         $this->assertTrue($size);
     }
     public function testCheckSizeUserPass18(){
-        echo("SIZE Login");
+      //  echo("SIZE Login");
         $size=CheckSizeUserPass('pruebapruebapruebas18','123456'); //21 y 6       
       // var_dump("testCheckSizeUserPass17",$size);
         $this->assertFalse($size);
     }
     public function testCheckSizeUserPass19(){
-        echo("SIZE Login");
+      //  echo("SIZE Login");
         $size=CheckSizeUserPass('pruebapruebapruebas19','123456'); //21 y 3       
       // var_dump("testCheckSizeUserPass18",$size);
         $this->assertFalse($size);

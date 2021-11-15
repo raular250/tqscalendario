@@ -66,6 +66,7 @@ function CheckUsername($username){
 
 //Comprueba si el usuario y password introducido existe en el MockObject
 function CheckUsernamePasswordMockObject($username,$password){ 
+    if(!isset($_SESSION))$_SESSION=array();
     global $mensaje;
     $passwordsBDMock=getPasswordMaestraMockObject();
     if(CheckUsername($username)){
@@ -192,7 +193,7 @@ function CheckSizeUserPass($username,$password){
         }
     }
     else{ //no, username con tamaño incorrectos
-        echo("Tamaños de Login incorrecto");
+        //echo("Tamaños de Login incorrecto");
         if(strlen($username)<4){
             if(strlen($password)<6){ //username y password con pocos carácteres
                 array_push($mensaje,"<div class='mensajesIncorrectosLogin'> Username introducido con menos de 4 carácteres. </div>");
