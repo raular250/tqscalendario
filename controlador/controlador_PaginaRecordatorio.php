@@ -59,7 +59,65 @@ function insertRecordatorioBD($recordatorio,$user_id,$connexio){
     $descripcion=$recordatorio->descripcion;
     return insertRecordatoriosBDmodel($connexio,$titulo,$inicio,$fin,$freq,$anterioridad,$descripcion,$user_id);
 }
+
+function ComprobarCampos($titulo,$inicio,$fin,$freq,$anterioridad,$rep,$freqRep,$descripcion){
+    if(strlen($titulo)>=1 && strlen($titulo)<=100 && $titulo!=''){
+    }else{
+        echo("Titulo");
+        return False;
+    }
+    
+    if(ctype_digit($inicio[0]) && ctype_digit($inicio[1]) && ctype_digit($inicio[2]) && ctype_digit($inicio[3]) && 
+        $inicio[4]=='-' && ctype_digit($inicio[5]) && ctype_digit($inicio[6]) && $inicio[7]=='-' && ctype_digit($inicio[8]) && 
+        ctype_digit($inicio[9]) && $inicio[10]=='T' && ctype_digit($inicio[11]) && ctype_digit($inicio[12]) &&
+         $inicio[13]==':' && ctype_digit($inicio[14]) && ctype_digit($inicio[15]) && (bool)strtotime($inicio))
+    {
+    }else{
+        echo("Inicio");
+        return False;
+    }
+
+    if(ctype_digit($fin[0]) && ctype_digit($fin[1]) && ctype_digit($fin[2]) && ctype_digit($fin[3]) && 
+        $fin[4]=='-' && ctype_digit($fin[5]) && ctype_digit($fin[6]) && $fin[7]=='-' && ctype_digit($fin[8]) && 
+        ctype_digit($fin[9]) && $fin[10]=='T' && ctype_digit($fin[11]) && ctype_digit($fin[12]) &&
+         $fin[13]==':' && ctype_digit($fin[14]) && ctype_digit($fin[15]) && (bool)strtotime($fin))
+    {
+    }else{
+        echo("fin");
+        return False;
+    }
+    if($freq == 'once' || $freq == 'daily' || $freq == 'L-V' || $freq == 'annually' || $freq== 'other' ){
+    }else{
+        echo("freq");
+        return False;
+    }
+    if($anterioridad == '5m' || $anterioridad == '1h' || $anterioridad == '1d' || $anterioridad == '1s' ){
+    }else{
+        echo("anterioridad");
+        return False;
+    }
+    if($rep='false' || $rep='' || (ctype_digit($rep) && $rep>=1 && $rep<=365)){
+    }else{
+        echo("rep");
+        var_dump($rep);
+        return False;
+    }
+    if($freqRep == 'D' || $freqRep == 'M' || $freqRep == 'A' ){
+    }else{
+        echo("freqRep");
+        return False;
+    }
+    if(strlen($descripcion)>=0 && strlen($descripcion)<=200){
+    }else{
+        echo("descripcion");
+        return False;
+    }
+
+    return True;
+}
+
 if(isset($_POST['submitRecordatorio'])){
+
     $titulo = $_POST['titulo'];
     $inicio = $_POST['inicio'];
     $fin = $_POST['fin'];
@@ -69,8 +127,14 @@ if(isset($_POST['submitRecordatorio'])){
     $freqRep = $_POST['freqRep'];
     $descripcion = $_POST['descripcion'];
 
-    $recordatorio=creaRecordatorio($titulo,$inicio,$fin,$freq,$anterioridad,$rep,$freqRep,$descripcion);
-    $result=insertRecordatorioBD($recordatorio,$_SESSION['userId'],$connexio);
+    if(ComprobarCampos($titulo,$inicio,$fin,$freq,$anterioridad,$rep,$freqRep,$descripcion)){
+        $recordatorio=creaRecordatorio($titulo,$inicio,$fin,$freq,$anterioridad,$rep,$freqRep,$descripcion);
+        $result=insertRecordatorioBD($recordatorio,$_SESSION['userId'],$connexio);
+    }
+    else{
+        $result=[false,'Hay datos introducidos incorrectos'];
+    }
+    
 }
 
 require_once __DIR__.'/../vista/vista_PaginaRecordatorio.php';
