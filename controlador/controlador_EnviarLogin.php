@@ -170,8 +170,8 @@ function CheckUserEmpty($username,$password){
     }
     else{
         array_push($mensaje,"<div class='mensajesCorrectosLogin'> Los campos no están vacíos. </div>");
-        return True; //campos llenos
     }
+    return True; //campos llenos
 }
 
 //Comprueba la longitud de los valores introducidos en los campos username y password
