@@ -91,9 +91,8 @@ function ComprobarCampos($titulo,$inicio,$fin,$freq,$anterioridad,$rep,$freqRep,
     }else{
         return False;
     }
-    if($rep='false' || $rep='' || (ctype_digit($rep) && $rep>=1 && $rep<=365)){
+    if($rep=='false' || $rep=='' || (ctype_digit($rep) && ($rep>=1 && $rep<=365))){
     }else{
-        var_dump($rep);
         return False;
     }
     if($freqRep == 'D' || $freqRep == 'M' || $freqRep == 'A' ){

@@ -393,6 +393,24 @@ class CalendarioTest extends PHPUnit\Framework\TestCase{
         $nextRec=nextRec($ini,$fin,$freq,$ant,$date);
         $this->assertFalse($nextRec);
     }
+    public function testNextRecPath10(){
+        $ini="2022-01-05 10:00";
+        $fin="2022-01-06 07:27";
+        $freq="once";
+        $ant="1h";
+        $date="2021-01-06 06:26";
+        $nextRec=nextRec($ini,$fin,$freq,$ant,$date);
+        $this->assertFalse($nextRec);
+    }
+    public function testNextRecPath11(){
+        $ini="2022-01-05 10:00";
+        $fin="2022-01-06 07:27";
+        $freq="2A";
+        $ant="1h";
+        $date="2021-01-06 06:26";
+        $nextRec=nextRec($ini,$fin,$freq,$ant,$date);
+        $this->assertFalse($nextRec);
+    }
     public function testNextDate1(){
         $ini="2020-01-01 10:00";
         $fin="2022-01-01 10:00";
@@ -532,6 +550,17 @@ class CalendarioTest extends PHPUnit\Framework\TestCase{
     public function testGetRecordatorios1(){
         $connexio=connectDB();
         $result=is_Array(getRecordatorios(1,$connexio));
+        $this->assertTrue($result);
+    }
+    public function testGetRecordatorios2(){
+        $connexio=connectDB();
+        $result=is_Array(getRecordatorios(2,$connexio));
+        $this->assertTrue($result);
+    }
+    
+    public function testGetRecordatorios3(){
+        $connexio=connectDB();
+        $result=is_Array(getRecordatorios(3,$connexio));
         $this->assertTrue($result);
     }
 }

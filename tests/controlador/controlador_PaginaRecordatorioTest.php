@@ -509,7 +509,10 @@ class RecordatorioTest extends PHPUnit\Framework\TestCase{
         $recordatorio=ComprobarCampos('titulo',"2020-01-01T00:00","2020-01-01T00:00","other","1s","true","D",'descripcion');
         $this->assertTrue($recordatorio);
     }
-  
+    public function testComprobarRep9(){ 
+        $recordatorio=ComprobarCampos('titulo',"2020-01-01T00:00","2020-01-01T00:00","other","1s","3666","D",'descripcion');
+        $this->assertTrue($recordatorio);
+    }
 
     // Test freqRep
     public function testComprobarFreqRep(){ 
