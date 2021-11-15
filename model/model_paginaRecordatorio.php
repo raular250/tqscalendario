@@ -4,14 +4,11 @@ function insertRecordatoriosBDmodel($connexio,$titulo,$inicio,$fin,$freq,$anteri
         $consulta_id=$connexio->prepare("INSERT INTO recordatorios (titulo,inicio,fin,frequencia,anterioridad,descripcion,user_id) VALUES ('$titulo','$inicio','$fin','$freq','$anterioridad','$descripcion','$user_id')");
         $consulta_id->execute();
         if($error=$consulta_id->error !=""){
-            echo $error;
-            return false;
+            return array(false,$error);
         }
-        echo "Recordatorio insertado!";
-        return true;
+        return array(true,"Recordatorio insertado!");
     }catch (PDOException $e){
-        echo "ERROR: " . $e->getMessage();
-        return false;
+        return array(false,"ERROR: " . $e->getMessage());
     }
     $connexio=null;
 

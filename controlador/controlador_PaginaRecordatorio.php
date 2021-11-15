@@ -7,7 +7,6 @@ require_once __DIR__.'/../model/model_paginaRecordatorio.php';
 $connexio=connectDB();
 require __DIR__.'/../vista/vista_cabecera.php';
 
-require_once __DIR__.'/../vista/vista_PaginaRecordatorio.php';
 
 class Recordatorio{
     public $titulo;
@@ -71,8 +70,18 @@ if(isset($_POST['submitRecordatorio'])){
     $descripcion = $_POST['descripcion'];
 
     $recordatorio=creaRecordatorio($titulo,$inicio,$fin,$freq,$anterioridad,$rep,$freqRep,$descripcion);
-    insertRecordatorioBD($recordatorio,$_SESSION['userId'],$connexio);
+    $result=insertRecordatorioBD($recordatorio,$_SESSION['userId'],$connexio);
 }
 
+require_once __DIR__.'/../vista/vista_PaginaRecordatorio.php';
+
+if(isset($result)){
+    if($result[0]==false){
+        echo "No se ha podido crear el recordatorio. <br>";
+        echo $result[1];
+    }else{
+        echo "recordatorio creado!";
+    }
+}
 
 ?>
