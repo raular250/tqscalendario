@@ -400,7 +400,7 @@ class CalendarioTest extends PHPUnit\Framework\TestCase{
         $ant="1h";
         $date="2021-01-06 06:26";
         $nextRec=nextRec($ini,$fin,$freq,$ant,$date);
-        $this->assertFalse($nextRec);
+        $this->assertEquals('2022-01-05 09:00',$nextRec);
     }
     public function testNextRecPath11(){
         $ini="2022-01-05 10:00";
@@ -409,7 +409,7 @@ class CalendarioTest extends PHPUnit\Framework\TestCase{
         $ant="1h";
         $date="2021-01-06 06:26";
         $nextRec=nextRec($ini,$fin,$freq,$ant,$date);
-        $this->assertFalse($nextRec);
+        $this->assertEquals('2022-01-05 09:00',$nextRec);
     }
     public function testNextDate1(){
         $ini="2020-01-01 10:00";
