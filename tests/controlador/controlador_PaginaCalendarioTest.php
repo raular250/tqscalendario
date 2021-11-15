@@ -303,6 +303,96 @@ class CalendarioTest extends PHPUnit\Framework\TestCase{
         $nextRec=nextRec($ini,$fin,$freq,$ant,$date);
         $this->assertFalse($nextRec);
     }
+    public function testNextRecAnt4(){
+        $ini="2020-01-01 10:00";
+        $fin="2022-11-12 22:27";
+        $freq="once";
+        $ant="1s";
+        $date="2021-11-12 22:26";
+        $nextRec=nextRec($ini,$fin,$freq,$ant,$date);
+        $this->assertFalse($nextRec);
+    }
+    public function testNextRecPath1(){
+        $ini="2022-01-01 10:00";
+        $fin="2023-11-12 22:27";
+        $freq="1M";
+        $ant="1h";
+        $date="2021-11-12 22:26";
+        $nextRec=nextRec($ini,$fin,$freq,$ant,$date);
+        $this->assertEquals("2022-01-01 09:00",$nextRec);
+    }
+    public function testNextRecPath2(){
+        $ini="2022-01-01 10:00";
+        $fin="2023-11-12 22:27";
+        $freq="daily";
+        $ant="1h";
+        $date="2021-11-12 22:26";
+        $nextRec=nextRec($ini,$fin,$freq,$ant,$date);
+        $this->assertEquals("2022-01-01 09:00",$nextRec);
+    }
+    public function testNextRecPath3(){
+        $ini="2022-01-01 10:00";
+        $fin="2023-11-12 22:27";
+        $freq="L-V";
+        $ant="1h";
+        $date="2021-11-12 22:26";
+        $nextRec=nextRec($ini,$fin,$freq,$ant,$date);
+        $this->assertEquals("2022-01-01 09:00",$nextRec);
+    }
+    public function testNextRecPath4(){
+        $ini="2022-01-01 10:00";
+        $fin="2023-11-12 22:27";
+        $freq="annually";
+        $ant="1h";
+        $date="2021-11-12 22:26";
+        $nextRec=nextRec($ini,$fin,$freq,$ant,$date);
+        $this->assertEquals("2022-01-01 09:00",$nextRec);
+    }
+    public function testNextRecPath5(){
+        $ini="2022-01-05 10:00";
+        $fin="2022-02-01 22:27";
+        $freq="1M";
+        $ant="1h";
+        $date="2022-01-06 22:26";
+        $nextRec=nextRec($ini,$fin,$freq,$ant,$date);
+        $this->assertFalse($nextRec);
+    }
+    public function testNextRecPath6(){
+        $ini="2022-01-05 10:00";
+        $fin="2022-02-01 22:27";
+        $freq="1A";
+        $ant="1h";
+        $date="2022-01-06 22:26";
+        $nextRec=nextRec($ini,$fin,$freq,$ant,$date);
+        $this->assertFalse($nextRec);
+    }
+    public function testNextRecPath7(){
+        $ini="2022-01-05 10:00";
+        $fin="2022-01-06 07:27";
+        $freq="daily";
+        $ant="1h";
+        $date="2022-01-06 06:26";
+        $nextRec=nextRec($ini,$fin,$freq,$ant,$date);
+        $this->assertFalse($nextRec);
+    }
+    public function testNextRecPath8(){
+        $ini="2022-01-05 10:00";
+        $fin="2022-01-06 07:27";
+        $freq="L-V";
+        $ant="1h";
+        $date="2022-01-06 06:26";
+        $nextRec=nextRec($ini,$fin,$freq,$ant,$date);
+        $this->assertFalse($nextRec);
+    }
+    public function testNextRecPath9(){
+        $ini="2022-01-05 10:00";
+        $fin="2022-01-06 07:27";
+        $freq="annually";
+        $ant="1h";
+        $date="2022-01-06 06:26";
+        $nextRec=nextRec($ini,$fin,$freq,$ant,$date);
+        $this->assertFalse($nextRec);
+    }
     public function testNextDate1(){
         $ini="2020-01-01 10:00";
         $fin="2022-01-01 10:00";
@@ -432,12 +522,17 @@ class CalendarioTest extends PHPUnit\Framework\TestCase{
         $result=minusAnt($date,$ant);
         $this->assertEquals("2021-01-01 23:54",$result);
     }
-    
     public function testMinusAnt15(){    //valores frontera
         $date=false;
         $ant='5m';
         $result=minusAnt($date,$ant);
         $this->assertFalse($result);
+    }
+
+    public function testGetRecordatorios1(){
+        $connexio=connectDB();
+        $result=is_Array(getRecordatorios(1,$connexio));
+        $this->assertTrue($result);
     }
 }
 
