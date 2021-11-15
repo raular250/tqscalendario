@@ -63,7 +63,6 @@ function insertRecordatorioBD($recordatorio,$user_id,$connexio){
 function ComprobarCampos($titulo,$inicio,$fin,$freq,$anterioridad,$rep,$freqRep,$descripcion){
     if(strlen($titulo)>=1 && strlen($titulo)<=100 && $titulo!=''){
     }else{
-        echo("Titulo");
         return False;
     }
     
@@ -73,7 +72,6 @@ function ComprobarCampos($titulo,$inicio,$fin,$freq,$anterioridad,$rep,$freqRep,
          $inicio[13]==':' && ctype_digit($inicio[14]) && ctype_digit($inicio[15]) && (bool)strtotime($inicio))
     {
     }else{
-        echo("Inicio");
         return False;
     }
 
@@ -83,33 +81,27 @@ function ComprobarCampos($titulo,$inicio,$fin,$freq,$anterioridad,$rep,$freqRep,
          $fin[13]==':' && ctype_digit($fin[14]) && ctype_digit($fin[15]) && (bool)strtotime($fin))
     {
     }else{
-        echo("fin");
         return False;
     }
     if($freq == 'once' || $freq == 'daily' || $freq == 'L-V' || $freq == 'annually' || $freq== 'other' ){
     }else{
-        echo("freq");
         return False;
     }
     if($anterioridad == '5m' || $anterioridad == '1h' || $anterioridad == '1d' || $anterioridad == '1s' ){
     }else{
-        echo("anterioridad");
         return False;
     }
     if($rep='false' || $rep='' || (ctype_digit($rep) && $rep>=1 && $rep<=365)){
     }else{
-        echo("rep");
         var_dump($rep);
         return False;
     }
     if($freqRep == 'D' || $freqRep == 'M' || $freqRep == 'A' ){
     }else{
-        echo("freqRep");
         return False;
     }
     if(strlen($descripcion)>=0 && strlen($descripcion)<=200){
     }else{
-        echo("descripcion");
         return False;
     }
 
