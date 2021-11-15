@@ -276,7 +276,8 @@ class RecordatorioTest extends PHPUnit\Framework\TestCase{
         $this->assertFalse(insertRecordatorioBD($rec,'a',$connexio)[0]);
     }
     
-    //Test Titulo
+    //                                                  ↓↓↓TEST DEL FORMULARIO DE RECORDATORIOS↓↓↓
+    //      Test Titulo
     //Decision, valores límite, frontera y particiones equivalentes
     public function testComprobarTitulo(){ 
         $recordatorio=ComprobarCampos('titulo',"2020-01-01T00:00","2020-01-01T00:00","other","1s","2","A",'descripcion');
@@ -315,70 +316,70 @@ class RecordatorioTest extends PHPUnit\Framework\TestCase{
         $this->assertFalse($recordatorio);
     }
 
-    // Test inicio
-    public function testComprobarInicio(){ 
+    // Test de la fecha inicio
+    public function testComprobarFechas(){ 
         $recordatorio=ComprobarCampos('titulo',"2020-01-01T00:00","2020-01-01T00:00","once","5m","1","D",'descripcion');
         $this->assertTrue($recordatorio);
     }
-    public function testComprobarInicio1(){ 
+    public function testComprobarFechas1(){ 
         $recordatorio=ComprobarCampos('titulo',"AAAA-01-01T00:00","2020-01-01T00:00","once","5m","1","D",'descripcion');
         $this->assertFalse($recordatorio);
     }
-    public function testComprobarInicio2(){ 
+    public function testComprobarFechas2(){ 
         $recordatorio=ComprobarCampos('titulo',"2020/01-01T00:00","2020-01-01T00:00","once","5m","1","D",'descripcion');
         $this->assertFalse($recordatorio);
     }
-    public function testComprobarInicio3(){ 
+    public function testComprobarFechas3(){ 
         $recordatorio=ComprobarCampos('titulo',"2020-01/01T00:00","2020-01-01T00:00","once","5m","1","D",'descripcion');
         $this->assertFalse($recordatorio);
     }
-    public function testComprobarInicio4(){ 
+    public function testComprobarFechas4(){ 
         $recordatorio=ComprobarCampos('titulo',"2020-40-01T00:00","2020-01-01T00:00","once","5m","1","D",'descripcion');
         $this->assertFalse($recordatorio);
     }
-    public function testComprobarInicio5(){ 
+    public function testComprobarFechas5(){ 
         $recordatorio=ComprobarCampos('titulo',"2020-01-40T00:00","2020-01-01T00:00","once","5m","1","D",'descripcion');
         $this->assertFalse($recordatorio);
     }
-    public function testComprobarInicio6(){ 
+    public function testComprobarFechas6(){ 
         $recordatorio=ComprobarCampos('titulo',"2020-01-01T30:00","2020-01-01T00:00","once","5m","1","D",'descripcion');
         $this->assertFalse($recordatorio);
     }
-    public function testComprobarInicio7(){ 
+    public function testComprobarFechas7(){ 
         $recordatorio=ComprobarCampos('titulo',"2020-01-01T12:20","2020-01-01T00:00","once","5m","1","D",'descripcion');
         $this->assertTrue($recordatorio);
     }
 
-    // Test fin
-    public function testComprobarFin(){ 
+    // Test de la fecha fin
+    public function testComprobarFechas8(){ 
         $recordatorio=ComprobarCampos('titulo',"2020-01-01T00:00","2020-01-01T00:00","once","5m","1","D",'descripcion');
         $this->assertTrue($recordatorio);
     }
-    public function testComprobarFin1(){ 
+    public function testComprobarFechas9(){ 
         $recordatorio=ComprobarCampos('titulo',"2020-01-01T00:00","AAAA-01-01T00:00","once","5m","1","D",'descripcion');
         $this->assertFalse($recordatorio);
     }
-    public function testComprobarFin2(){ 
+    public function testComprobarFechas10(){ 
         $recordatorio=ComprobarCampos('titulo',"2020-01-01T00:00","2020/01-01T00:00","once","5m","1","D",'descripcion');
         $this->assertFalse($recordatorio);
     }
-    public function testComprobarFin3(){ 
+    public function testComprobarFechas11(){ 
         $recordatorio=ComprobarCampos('titulo',"2020-01-01T00:00","2020-01/01T00:00","once","5m","1","D",'descripcion');
         $this->assertFalse($recordatorio);
     }
-    public function testComprobarFin4(){ 
+    public function testComprobarFechas12(){ 
         $recordatorio=ComprobarCampos('titulo',"2020-01-01T00:00","2020-40-01T00:00","once","5m","1","D",'descripcion');
         $this->assertFalse($recordatorio);
     }
-    public function testComprobarFin5(){ 
+    public function testComprobarFechas13(){ 
         $recordatorio=ComprobarCampos('titulo',"2020-01-01T00:00","2020-01-40T00:00","once","5m","1","D",'descripcion');
         $this->assertFalse($recordatorio);
     }
-    public function testComprobarFin6(){ 
+    public function testComprobarFechas14(){ 
         $recordatorio=ComprobarCampos('titulo',"2020-01-01T00:00","2020-01-01T30:00","once","5m","1","D",'descripcion');
         $this->assertFalse($recordatorio);
     }
-    public function testComprobarFin7(){ 
+    public function testComprobarFechas15(){ 
         $recordatorio=ComprobarCampos('titulo',"2020-01-01T00:00","2020-01-01T12:20","once","5m","1","D",'descripcion');
         $this->assertTrue($recordatorio);
     }
