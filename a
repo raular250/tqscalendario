@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <title>Test Documentation</title>
+        <style>
+            body {
+                text-rendering: optimizeLegibility;
+                font-variant-ligatures: common-ligatures;
+                font-kerning: normal;
+                margin-left: 2em;
+                background-color: #ffffff;
+                color: #000000;
+            }
+
+            body > ul > li {
+                font-family: Source Serif Pro, PT Sans, Trebuchet MS, Helvetica, Arial;
+                font-size: 2em;
+            }
+
+            h2 {
+                font-family: Tahoma, Helvetica, Arial;
+                font-size: 3em;
+            }
+
+            ul {
+                list-style: none;
+                margin-bottom: 1em;
+            }
+        </style>
+    </head>
+    <body>
+        <h2 id="UsuarioTest">Usuario</h2>
+        <ul>
+            <li style="color: #555753;">✓ Check user password mock object 1</li>
+            <li style="color: #555753;">✓ Check user password mock object 3</li>
+            <li style="color: #555753;">✓ Check user password mock object 4</li>
+            <li style="color: #555753;">✓ Check user password 1</li>
+            <li style="color: #555753;">✓ Check user password 3</li>
+            <li style="color: #555753;">✓ Check user password 4</li>
+            <li style="color: #555753;">✓ User</li>
+            <li style="color: #555753;">✓ Get password user</li>
+            <li style="color: #555753;">✓ Change new password</li>
+            <li style="color: #555753;">✓ Change bad password</li>
+            <li style="color: #555753;">✓ Change equal password</li>
+            <li style="color: #555753;">✓ Check user mock object</li>
+            <li style="color: #555753;">✓ Check user mock object</li>
+            <li style="color: #555753;">✓ Check user empty</li>
+            <li style="color: #555753;">✓ Check user empty</li>
+            <li style="color: #555753;">✓ Check user empty</li>
+            <li style="color: #555753;">✓ Check user empty</li>
+            <li style="color: #555753;">✓ Check user empty</li>
+            <li style="color: #555753;">✓ Check user empty</li>
+            <li style="color: #555753;">✓ Check user empty</li>
+            <li style="color: #555753;">✓ Check user empty</li>
+            <li style="color: #555753;">✓ Check user empty</li>
+            <li style="color: #555753;">✓ Check size user pass</li>
+            <li style="color: #555753;">✓ Check size user pass</li>
+            <li style="color: #555753;">✓ Check size user pass</li>
+            <li style="color: #555753;">✓ Check size user pass</li>
+            <li style="color: #555753;">✓ Check size user pass</li>
+            <li style="color: #555753;">✓ Check size user pass</li>
+            <li style="color: #555753;">✓ Check size user pass</li>
+            <li style="color: #555753;">✓ Check size user pass</li>
+            <li style="color: #555753;">✓ Check size user pass</li>
+            <li style="color: #555753;">✓ Check size user pass</li>
+            <li style="color: #555753;">✓ Check size user pass</li>
+            <li style="color: #555753;">✓ Check size user pass</li>
+            <li style="color: #555753;">✓ Check size user pass</li>
+            <li style="color: #555753;">✓ Check size user pass</li>
+            <li style="color: #555753;">✓ Check size user pass</li>
+            <li style="color: #555753;">✓ Check size user pass</li>
+            <li style="color: #555753;">✓ Check size user pass</li>
+            <li style="color: #555753;">✓ Check size user pass</li>
+            <li style="color: #555753;">✓ Check size user pass</li>
+            <li style="color: #555753;">✓ Check size user pass</li>
+            <li style="color: #555753;">✓ Get user</li>
+            <li style="color: #555753;">✓ Check user password</li>
+            <li style="color: #555753;">✓ Check user password mock object</li>
+            <li style="color: #555753;">✓ Check user</li>
+            <li style="color: #555753;">✓ Check user</li>
+            <li style="color: #555753;">✓ Check user password mock object</li>
+            <li style="color: #555753;">✓ Check user password</li>
+        </ul>
+        <h2 id="CalendarioTest">Calendario</h2>
+        <ul>
+            <li style="color: #555753;">✓ Get recordatorios mock 0</li>
+            <li style="color: #555753;">✓ Get recordatorios mock 9999</li>
+            <li style="color: #555753;">✓ GetRecordatoriosMock 1</li>
+            <li style="color: #555753;">✓ Next rec ini 4</li>
+            <li style="color: #555753;">✓ Next rec ini 5</li>
+            <li style="color: #555753;">✓ Next rec ini 6</li>
+            <li style="color: #555753;">✓ Next rec ini 7</li>
+            <li style="color: #555753;">✓ Next rec ini 8</li>
+            <li style="color: #555753;">✓ Next rec ini 9</li>
+            <li style="color: #555753;">✓ Next rec fin 1</li>
+            <li style="color: #555753;">✓ Next rec fin 2</li>
+            <li style="color: #555753;">✓ Next rec fin 3</li>
+            <li style="color: #555753;">✓ Next rec fin 4</li>
+            <li style="color: #555753;">✓ Next rec fin 5</li>
+            <li style="color: #555753;">✓ Next rec fin 6</li>
+            <li style="color: #555753;">✓ Next rec freq 2</li>
+            <li style="color: #555753;">✓ Next rec freq 3</li>
+            <li style="color: #555753;">✓ Next rec freq 4</li>
+            <li style="color: #555753;">✓ Next rec freq 5</li>
+            <li style="color: #555753;">✓ Next rec freq 8</li>
+            <li style="color: #555753;">✓ Next rec ant 3</li>
+            <li style="color: #555753;">✓ Next date 1</li>
+            <li style="color: #555753;">✓ Next date 2</li>
+            <li style="color: #555753;">✓ Next date 3</li>
+            <li style="color: #555753;">✓ Next date 5</li>
+            <li style="color: #555753;">✓ Minus ant 1</li>
+            <li style="color: #555753;">✓ Minus ant 2</li>
+            <li style="color: #555753;">✓ Minus ant 3</li>
+            <li style="color: #555753;">✓ Minus ant 4</li>
+            <li style="color: #555753;">✓ Minus ant 5</li>
+            <li style="color: #555753;">✓ Minus ant 6</li>
+            <li style="color: #555753;">✓ Minus ant 7</li>
+            <li style="color: #555753;">✓ Minus ant 8</li>
+            <li style="color: #555753;">✓ Minus ant 9</li>
+            <li style="color: #555753;">✓ Minus ant 10</li>
+            <li style="color: #555753;">✓ Minus ant 11</li>
+            <li style="color: #555753;">✓ Minus ant 12</li>
+            <li style="color: #555753;">✓ Minus ant 13</li>
+            <li style="color: #555753;">✓ Minus ant 14</li>
+            <li style="color: #555753;">✓ Minus ant 15</li>
+            <li style="color: #555753;">✓ Get recordatorios mock 1</li>
+            <li style="color: #555753;">✓ Next rec ini 3</li>
+            <li style="color: #555753;">✓ Next rec freq 1</li>
+            <li style="color: #555753;">✓ Next rec 1</li>
+            <li style="color: #555753;">✓ Next rec ini 2</li>
+            <li style="color: #555753;">✓ Next rec fin 7</li>
+            <li style="color: #555753;">✓ Next rec fin 8</li>
+            <li style="color: #555753;">✓ Next rec freq 6</li>
+            <li style="color: #555753;">✓ Next rec ant 1</li>
+            <li style="color: #555753;">✓ Next rec ant 2</li>
+            <li style="color: #555753;">✓ Next rec freq 7</li>
+            <li style="color: #555753;">✓ Next date 4</li>
+            <li style="color: #555753;">✓ Next rec ini 1</li>
+        </ul>
+        <h2 id="RecordatorioTest">Recordatorio</h2>
+        <ul>
+            <li style="color: #555753;">✓ Crea recordatorio titulo</li>
+            <li style="color: #555753;">✓ Crea recordatorio inicio</li>
+            <li style="color: #555753;">✓ Crea recordatorio fin</li>
+            <li style="color: #555753;">✓ Crea recordatorio frequency</li>
+            <li style="color: #555753;">✓ Crea recordatorio anterioridad</li>
+            <li style="color: #555753;">✓ Crea recordatorio description</li>
+            <li style="color: #555753;">✓ Crea recordatorio freq 1</li>
+            <li style="color: #555753;">✓ Crea recordatorio freq 2</li>
+            <li style="color: #555753;">✓ Crea recordatorio freq 3</li>
+            <li style="color: #555753;">✓ Crea recordatorio freq 4</li>
+            <li style="color: #555753;">✓ Crea recordatorio rep 1</li>
+            <li style="color: #555753;">✓ Crea recordatorio rep 2</li>
+            <li style="color: #555753;">✓ Crea recordatorio rep 3</li>
+            <li style="color: #555753;">✓ Crea recordatori rep 4</li>
+            <li style="color: #555753;">✓ Crea recordatori rep 5</li>
+            <li style="color: #555753;">✓ Crea recordatori description</li>
+            <li style="color: #555753;">✓ Insert recordatorio b d true</li>
+            <li style="color: #555753;">✓ Insert recordatorio b d false</li>
+        </ul>
+        <h2 id="connectDBTest">connect DB</h2>
+        <ul>
+            <li style="color: #555753;">✓ Close connection</li>
+            <li style="color: #555753;">✓ Connection 1</li>
+            <li style="color: #555753;">✓ Connection 2</li>
+        </ul>
+    </body>
+</html>
