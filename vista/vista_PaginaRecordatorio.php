@@ -23,7 +23,7 @@
             <option value="1s">1 semana antes</option>
         </select>
         <div id="ifYes" style="display: none;">
-            <p>Cada: <input type="number" name="rep" min="1" max="365" placeholder="1">
+            <p>Cada: <input type="number" name="rep" min="1" max="365" value="1">
                 <select name="freqRep">
                     <option value='D'>Días</option>
                     <option value='M'>Meses</option>
