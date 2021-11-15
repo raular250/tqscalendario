@@ -11,6 +11,9 @@ foreach(array_slice($folders, 0, -2) as $folder){
 require_once $directorio.'/controlador/controlador_PaginaCalendario.php';      //deberiamos usar __DIR__.'../\controlador\controlador_PaginaInicio.php'; pero no me funciona lo de subir 2 directorios con ..
 require_once $directorio.'/model/model_connectDB.php';      //deberiamos usar __DIR__.'../model/model_connectDB.php'; pero no me funciona lo de subir 2 directorios con ..
 
+/**
+ * @covers Calendario::
+*/
 class CalendarioTest extends PHPUnit\Framework\TestCase{
 
     public function testGetRecordatoriosMock0(){

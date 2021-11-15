@@ -7,6 +7,9 @@ foreach(array_slice($folders, 0, -2) as $folder){
 
 require_once $directorio.'/model/model_connectDB.php';      //deberiamos usar __DIR__.'../model/model_connectDB.php'; pero no me funciona lo de subir 2 directorios con ..
 
+    /**
+    * @covers connectDB
+    */
 class connectDBTest extends PHPUnit\Framework\TestCase{
 
     public function testConnection1(){

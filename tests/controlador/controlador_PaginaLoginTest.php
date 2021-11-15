@@ -8,6 +8,10 @@ foreach(array_slice($folders, 0, -2) as $folder){
 // require_once $directorio.'/controlador/controlador_PaginaLogin.php';      //deberiamos usar __DIR__.'../\controlador\controlador_PaginaInicio.php'; pero no me funciona lo de subir 2 directorios con ..
 require_once $directorio.'/controlador/controlador_EnviarLogin.php';
 
+
+/**
+ * @covers Usuario::
+*/
 class UsuarioTest extends PHPUnit\Framework\TestCase{
 
     public function testUser(){
